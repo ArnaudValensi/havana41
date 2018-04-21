@@ -25,14 +25,17 @@ public class NotificationManager : MonoBehaviour {
 
     #endregion
 
-    Dictionary<EventNotification, List<EventReceiver>> _internalList;
+
+    static public NotificationManager Instance;
+    static Dictionary<EventNotification, List<EventReceiver>> _internalList;
 
 	void Awake()
     {
+        Instance = this;
         _internalList = new Dictionary<EventNotification, List<EventReceiver>>();
     }
 
-    void AttachNotif(EventNotification notif, MonoBehaviour t, Action<object> action)
+    public void AttachNotif(EventNotification notif, MonoBehaviour t, Action<object> action)
     {
         List<EventReceiver> tmp;
         var newEvent = new EventReceiver() {
@@ -50,7 +53,7 @@ public class NotificationManager : MonoBehaviour {
         }
     }
 
-    void FireNotification(EventNotification notif, object help=null)
+    public void FireNotification(EventNotification notif, object help=null)
     {
         List<EventReceiver> tmp;
         if (_internalList.TryGetValue(notif, out tmp))
@@ -62,14 +65,13 @@ public class NotificationManager : MonoBehaviour {
         }
     }
 
-    void RemoveNotification(MonoBehaviour target)
+    public void RemoveNotification(MonoBehaviour target)
     {
-
+        foreach(var t in _internalList.Select(i => new { Key = i.Key, Value = i.Value.Where(j => j.target == target).ToList() }))
+        {
+            _internalList[t.Key].RemoveAll(a => t.Value.Contains(a));
+        }
     }
-
-
-
-
 
 
 }
