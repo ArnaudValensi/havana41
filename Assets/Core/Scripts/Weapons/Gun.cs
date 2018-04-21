@@ -46,7 +46,7 @@ public class Gun : MonoBehaviour {
 	CameraShake cameraShake;
 
 	void Start() {
-		bulletsHolder = GameObject.Find("/BulletsHolder");
+		bulletsHolder = GameObject.Find("BulletsHolder");
 		audioSource = GetComponent<AudioSource>();
 		cameraShake = Camera.main.GetComponent<CameraShake>();
 	}
