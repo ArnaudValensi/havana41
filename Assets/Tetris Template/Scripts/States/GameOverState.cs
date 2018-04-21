@@ -13,6 +13,7 @@ public class GameOverState : _StatesBase {
         Managers.Game.stats.numberOfGames++;
         Managers.UI.popUps.ActivateGameOverPopUp();
         Managers.Audio.PlayLoseSound();
+        NotificationManager.Instance.FireNotification(EventNotification.GameOver);
        
         Debug.Log ("<color=green>Game Over State</color> OnActive");	
 	}

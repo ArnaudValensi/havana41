@@ -89,7 +89,7 @@ public class Managers : MonoBehaviour
 	{
 		get { return _colorManager; }
 	}
-	void Awake ()
+	public void Awake ()
 	{
 		_gameManager = GetComponent<GameManager>();
 		_uiManager = GetComponent<UIManager>();
@@ -102,8 +102,6 @@ public class Managers : MonoBehaviour
 		_gridManager = GetComponent<GridManager> ();
 		_spawnManager = GetComponent<SpawnManager> ();
 		_colorManager = GetComponent<ColorManager> ();
-
-		DontDestroyOnLoad(gameObject);
 	}
     int cnt = 0;
 
