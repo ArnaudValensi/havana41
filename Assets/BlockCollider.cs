@@ -6,12 +6,12 @@ public class BlockCollider : MonoBehaviour {
 
     ShapeMovementController _shapeController=null;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void Touch(GameObject go)
     {
         Debug.Log("CollisionEnter");
         _shapeController = _shapeController ?? GetComponentInParent<ShapeMovementController>();
 
-        switch(collision.gameObject.tag)
+        switch (go.tag)
         {
             case "TurnRight":
                 _shapeController.RotateClockWise(true);
@@ -23,7 +23,7 @@ public class BlockCollider : MonoBehaviour {
                 _shapeController.FreeFall();
                 break;
             case "Move":
-                if(_shapeController.transform.position.x < _shapeController.transform.position.x)
+                if (_shapeController.transform.position.x > _shapeController.transform.position.x)
                 {
                     _shapeController.MoveHorizontal(ShapeMovementController.Direction.Right);
                 }
@@ -33,11 +33,11 @@ public class BlockCollider : MonoBehaviour {
                 }
                 break;
             default:
-                Debug.Log("collision detected but " + collision.gameObject.name);
+                Debug.Log("collision detected but " + go.name);
                 break;
         }
 
-    }
 
+    }
 
 }

@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 50533638901365048}
   - component: {fileID: 114891020345615656}
   - component: {fileID: 114497992337782316}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Move
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,10 +79,10 @@ BoxCollider2D:
   m_Offset: {x: 0.040207386, y: 0.00020897388}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.68979836, y: 0.51581657}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -156,5 +156,5 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0

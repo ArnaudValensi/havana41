@@ -15,7 +15,9 @@ public class Bullet : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		Destroy(gameObject);
+
+        col.gameObject.GetComponent<BlockCollider>()?.Touch(gameObject);
+        Destroy(gameObject);
 	}
 
 }
