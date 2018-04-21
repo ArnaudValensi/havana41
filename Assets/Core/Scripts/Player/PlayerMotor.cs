@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Prime31;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(CharacterController2D))]
 public class PlayerMotor : MonoBehaviour {
@@ -13,6 +14,9 @@ public class PlayerMotor : MonoBehaviour {
 	[ReadOnly] public Vector3 velocity = Vector3.zero;
 	[ReadOnly] public bool flipX;
 
+	[SerializeField] UnityEvent onJump;
+	[SerializeField] UnityEvent onPlayerLand;
+
 	CharacterController2D controller;
 	GameObject gun;
 
@@ -25,12 +29,17 @@ public class PlayerMotor : MonoBehaviour {
 		// Handle velocities
 		velocity.x = Input.GetAxis("Horizontal") * speed;
 
+		if (controller.collisionState.becameGroundedThisFrame) {
+			onPlayerLand.Invoke();
+		}
+
 		if (controller.isGrounded) {
 			grounded = true;
 			velocity.y = -gravity * Time.deltaTime;
 
 			if (Input.GetButtonDown("Jump")) {
 				velocity.y = jumpForce;
+				onJump.Invoke();
 			}
 		} else {
 			grounded = false;
