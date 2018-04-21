@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212000010090656202}
   - component: {fileID: 61023721515289862}
   - component: {fileID: 50392551681001290}
+  - component: {fileID: 114525443197975066}
   m_Layer: 0
   m_Name: Block
   m_TagString: Block
@@ -40,6 +41,7 @@ GameObject:
   - component: {fileID: 212000012443004158}
   - component: {fileID: 61555904564907338}
   - component: {fileID: 50762811922771414}
+  - component: {fileID: 114030125887608000}
   m_Layer: 0
   m_Name: Block
   m_TagString: Block
@@ -57,6 +59,7 @@ GameObject:
   - component: {fileID: 4000013947150258}
   - component: {fileID: 114000013761257444}
   - component: {fileID: 114000012705669518}
+  - component: {fileID: 114865807111585850}
   m_Layer: 0
   m_Name: Shape (3)
   m_TagString: Untagged
@@ -75,6 +78,7 @@ GameObject:
   - component: {fileID: 212000010531700374}
   - component: {fileID: 61556222507183534}
   - component: {fileID: 50719390456260058}
+  - component: {fileID: 114838815559731994}
   m_Layer: 0
   m_Name: Block
   m_TagString: Block
@@ -108,6 +112,7 @@ GameObject:
   - component: {fileID: 212000011706520298}
   - component: {fileID: 61084805217887120}
   - component: {fileID: 50890424493765178}
+  - component: {fileID: 114617195044753868}
   m_Layer: 0
   m_Name: Block
   m_TagString: Block
@@ -390,7 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationPivot: {fileID: 4000011435886762}
-  transitionInterval: 0.8
+  isFastTransition: 0
   fastTransitionInterval: 0.05
 --- !u!114 &114000013761257444
 MonoBehaviour:
@@ -405,6 +410,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 4
   movementController: {fileID: 0}
+--- !u!114 &114030125887608000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010523252156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10db4da396cbd8e429f6625e5cc6fec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114525443197975066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010145857352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10db4da396cbd8e429f6625e5cc6fec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114617195044753868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013612776374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10db4da396cbd8e429f6625e5cc6fec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114838815559731994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011578720606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10db4da396cbd8e429f6625e5cc6fec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114865807111585850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010848202762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10db4da396cbd8e429f6625e5cc6fec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212000010090656202
 SpriteRenderer:
   m_ObjectHideFlags: 1

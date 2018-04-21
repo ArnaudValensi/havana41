@@ -26,6 +26,14 @@ public class BlockCollider : MonoBehaviour {
                     _shapeController.FreeFall();
                     break;
                 case "Move":
+                    if(_shapeController.transform.position.x < _shapeController.transform.position.x)
+                    {
+                        _shapeController.MoveHorizontal(ShapeMovementController.Direction.Right);
+                    }
+                    else
+                    {
+                        _shapeController.MoveHorizontal(ShapeMovementController.Direction.Left);
+                    }
                     break;
                 default:
                     Debug.Log("collision detected but " + collision.gameObject.name);

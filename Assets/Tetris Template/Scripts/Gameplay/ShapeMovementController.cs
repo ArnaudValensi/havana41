@@ -47,8 +47,7 @@ public class ShapeMovementController : MonoBehaviour {
         }
     }
 
-    
-    //public void MoveHorizontal(Direction direction) => MoveHorizontal(direction == Direction.Left ? Vector3.left : Vector3.right);
+    public void MoveHorizontal(Direction direction) => MoveHorizontal(direction == Direction.Left ? Vector3.left : Vector3.right);
     public void MoveHorizontal(Vector2 direction)
     {
         float deltaMovement = (direction.Equals(Vector2.right)) ? 1.0f : -1.0f;
