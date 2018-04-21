@@ -9,10 +9,12 @@ public class PlayerMotor : MonoBehaviour {
 	public float gravity = 30f;
 	public float fallCoef = 2f;
 	public float jumpForce = 14f;
+	public LayerMask platformLayer;
 
 	[ReadOnly] public bool grounded;
 	[ReadOnly] public Vector3 velocity = Vector3.zero;
 	[ReadOnly] public bool flipX;
+	[ReadOnly] public bool isGroundedOnPlatform;
 
 	[SerializeField] UnityEvent onJump;
 	[SerializeField] UnityEvent onPlayerLand;
@@ -23,6 +25,10 @@ public class PlayerMotor : MonoBehaviour {
 	void Start () {
 		controller = GetComponent<CharacterController2D>();
 		gun = transform.Find("Gun").gameObject;
+
+		controller.onControllerCollidedEvent += (RaycastHit2D ray) => {
+			isGroundedOnPlatform = ((1 << ray.transform.gameObject.layer) & platformLayer.value) != 0;
+		};
 	}
 
 	void Update () {
@@ -43,6 +49,7 @@ public class PlayerMotor : MonoBehaviour {
 			}
 		} else {
 			grounded = false;
+			isGroundedOnPlatform = false;
 
 			// If it is falling
 			if (velocity.y < 0) {
