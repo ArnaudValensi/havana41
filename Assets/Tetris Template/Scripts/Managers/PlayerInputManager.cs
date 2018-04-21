@@ -35,16 +35,18 @@ public class PlayerInputManager : MonoBehaviour
         {
             if (inputType == InputMethod.KeyboardInput)
                 KeyboardInput();
-            else if (inputType == InputMethod.MouseInput)
-                MouseInput();
-            else if (inputType == InputMethod.TouchInput)
-                TouchInput();
+           //else if (inputType == InputMethod.MouseInput)
+           //    MouseInput();
+           //else if (inputType == InputMethod.TouchInput)
+           //    TouchInput();
         }
     }
 
     #region KEYBOARD
     void KeyboardInput()
     {
+        return;
+
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.UpArrow))
             Managers.Game.currentShape.movementController.RotateClockWise(false);
         else if (Input.GetKeyDown(KeyCode.D))
