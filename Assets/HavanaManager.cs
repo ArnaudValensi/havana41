@@ -7,6 +7,8 @@ public class HavanaManager : MonoBehaviour {
 	public static HavanaManager Instance { get; set; }
 
     [SerializeField] float _globalTransitionInterval = 0.8f;
+    [SerializeField] float _fastTransitionInterval;
+
     public float GlobalTransitionInterval
     {
         get
@@ -18,8 +20,13 @@ public class HavanaManager : MonoBehaviour {
             _globalTransitionInterval = value;
         }
     }
-
-
+    public float FastTransitionInterval
+    {
+        get
+        {
+            return _fastTransitionInterval;
+        }
+    }
 
     private void Awake()
     {

@@ -12,7 +12,11 @@ public class ShapeMovementController : MonoBehaviour {
     #endregion
 
     public Transform rotationPivot;
-    public float transitionInterval => HavanaManager.Instance.GlobalTransitionInterval
+
+    public float transitionInterval
+        => isFastTransition ? HavanaManager.Instance.FastTransitionInterval : HavanaManager.Instance.GlobalTransitionInterval;
+
+    public bool isFastTransition = false;
     public float fastTransitionInterval ;
     private float lastFall = 0;
     
@@ -97,6 +101,6 @@ public class ShapeMovementController : MonoBehaviour {
     
     public void InstantFall()
     {
-        transitionInterval = fastTransitionInterval;
+        isFastTransition = true;
     }
 }
