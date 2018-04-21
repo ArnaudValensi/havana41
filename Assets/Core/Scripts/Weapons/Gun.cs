@@ -40,6 +40,9 @@ public class Gun : MonoBehaviour {
 	public int nbBulletsPerShot = 3;
 
     [Space(10)]
+    [SerializeField] bool _useRaycast = false;
+
+    [Space(10)]
     [SerializeField] List<BulletTypePrefabAsso> BulletConfiguration;
 	[SerializeField] UnityEvent onShootNormal;
 	[SerializeField] UnityEvent onShootRotate;
@@ -94,27 +97,36 @@ public class Gun : MonoBehaviour {
 		}
 	}
 
-    
-
 
     GameObject GetBulletPrefab(BulletType bulletType) => BulletConfiguration.FirstOrDefault( i => i.type== bulletType)?.prefab ?? null;
 
     void Fire(BulletType bulletType= BulletType.Move) {
 
-        var bulletPrefab = GetBulletPrefab(bulletType) ?? this.bulletPrefab;
-        
-		// Create bullet
-		GameObject bullet = Instantiate(
-			bulletPrefab,
-			transform.position,
-			transform.rotation,
-			bulletsHolder.transform
-		);
+        if(!_useRaycast)
+        {
+            var bulletPrefab = GetBulletPrefab(bulletType) ?? this.bulletPrefab;
+            
+		    // Create bullet
+		    GameObject bullet = Instantiate(
+		    	bulletPrefab,
+		    	transform.position,
+		    	transform.rotation,
+		    	bulletsHolder.transform
+		    );
 
-		if (randomBulletRotation) {
-			float halfAngle = maxBulletRotation - maxBulletRotation / 2;
-			bullet.transform.Rotate(0f, 0f, Random.Range(-halfAngle, halfAngle));
-		}
+		    if (randomBulletRotation) {
+		    	float halfAngle = maxBulletRotation - maxBulletRotation / 2;
+		    	bullet.transform.Rotate(0f, 0f, Random.Range(-halfAngle, halfAngle));
+		    }
+        }
+        else
+        {
+            RaycastHit2D result;
+            if (result = Physics2D.Raycast(transform.position, transform.right, 1000, LayerMask.NameToLayer("Block")))
+            {
+                result.transform.GetComponent<BlockCollider>()?.Touch(gameObject);
+            }
+        }
 
 		// Gun sound
 		PlayerSound();

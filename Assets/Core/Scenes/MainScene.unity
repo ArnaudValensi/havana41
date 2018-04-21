@@ -5373,6 +5373,11 @@ Prefab:
       propertyPath: audioClips.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: c01c909c8768f4822bcf9039e95557f7, type: 3}
+    - target: {fileID: 114924367979388112, guid: da2754ebb2a074a828a0dbd2d82ab539,
+        type: 2}
+      propertyPath: _useRaycast
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da2754ebb2a074a828a0dbd2d82ab539, type: 2}
   m_IsPrefabParent: 0

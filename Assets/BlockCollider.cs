@@ -35,8 +35,5 @@ public class BlockCollider : MonoBehaviour {
                 Debug.Log("collision detected but " + go.name);
                 break;
         }
-
-
     }
-
 }
