@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(AudioSource))]
 public class Gun : MonoBehaviour {
@@ -40,6 +41,8 @@ public class Gun : MonoBehaviour {
 
     [Space(10)]
     [SerializeField] List<BulletTypePrefabAsso> BulletConfiguration;
+	[SerializeField] UnityEvent onShootNormal;
+	[SerializeField] UnityEvent onShootRotate;
 
     GameObject bulletsHolder;
 	AudioSource audioSource;
@@ -65,6 +68,7 @@ public class Gun : MonoBehaviour {
             {
                 Fire(BulletType.RotateClock);
             }
+			onShootRotate.Invoke();
         }
 
         if (Input.GetKeyDown(KeyCode.C))
@@ -73,6 +77,7 @@ public class Gun : MonoBehaviour {
             {
                 Fire(BulletType.RotateNClock);
             }
+			onShootRotate.Invoke();
         }
 
         if (Input.GetKeyDown(KeyCode.V))
@@ -85,6 +90,7 @@ public class Gun : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.R)) {
 			nbBulletsPerShot = (nbBulletsPerShot == 1) ? 3 : 1;
+			onShootNormal.Invoke();
 		}
 	}
 
