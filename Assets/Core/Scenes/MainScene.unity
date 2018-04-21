@@ -6780,37 +6780,37 @@ Prefab:
     - target: {fileID: 224252848347257772, guid: 5e20596f233a54cb7ae2621ab9a17145,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224252848347257772, guid: 5e20596f233a54cb7ae2621ab9a17145,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224252848347257772, guid: 5e20596f233a54cb7ae2621ab9a17145,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 206
       objectReference: {fileID: 0}
     - target: {fileID: 224146726603157494, guid: 5e20596f233a54cb7ae2621ab9a17145,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224146726603157494, guid: 5e20596f233a54cb7ae2621ab9a17145,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224146726603157494, guid: 5e20596f233a54cb7ae2621ab9a17145,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 206
       objectReference: {fileID: 0}
     - target: {fileID: 224146726603157494, guid: 5e20596f233a54cb7ae2621ab9a17145,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -71.600006
       objectReference: {fileID: 0}
     - target: {fileID: 1140315490815460, guid: 5e20596f233a54cb7ae2621ab9a17145, type: 2}
       propertyPath: m_Name
@@ -6839,16 +6839,16 @@ Prefab:
     - target: {fileID: 114624378740907824, guid: 5e20596f233a54cb7ae2621ab9a17145,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1140315490815460, guid: 5e20596f233a54cb7ae2621ab9a17145, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114739013143630698, guid: 5e20596f233a54cb7ae2621ab9a17145,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114884656946378082, guid: 5e20596f233a54cb7ae2621ab9a17145,
         type: 2}
@@ -9580,7 +9580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &722557741
 Transform:
   m_ObjectHideFlags: 0
