@@ -21,6 +21,7 @@ public enum InputMethod
 
 public class PlayerInputManager : MonoBehaviour
 {
+    public bool trigKeyBoard = false;
     public bool isActive;
     public InputMethod inputType;
 
@@ -45,7 +46,7 @@ public class PlayerInputManager : MonoBehaviour
     #region KEYBOARD
     void KeyboardInput()
     {
-        return;
+        if(!trigKeyBoard) return;
 
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.UpArrow))
             Managers.Game.currentShape.movementController.RotateClockWise(false);

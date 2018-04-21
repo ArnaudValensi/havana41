@@ -52,10 +52,13 @@ public class GridManager : MonoBehaviour
         }     
         
         foreach (Transform t in Managers.Game.blockHolder)
+        {
+            break;
             if (t.childCount <= 1)
             {
                 Destroy(t.gameObject);
             }
+        }
 
         //New shape will be spawned
         Managers.Spawner.Spawn();
