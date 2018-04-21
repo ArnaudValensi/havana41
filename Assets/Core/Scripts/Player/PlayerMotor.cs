@@ -55,6 +55,8 @@ public class PlayerMotor : MonoBehaviour {
 			// If it is falling
 			if (velocity.y < 0) {
 				velocity.y -= gravity * Time.deltaTime * fallCoef;
+			} else if (Input.GetButtonUp("Jump")) {
+				velocity.y = 0f;
 			} else {
 				velocity.y -= gravity * Time.deltaTime;
 			}
