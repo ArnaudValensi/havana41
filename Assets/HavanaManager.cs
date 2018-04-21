@@ -10,6 +10,18 @@ public static class Helper
     {
         foreach (var t in @this) action(t);
     }
+
+    public static float Evaluate(this AnimationCurve @this, float time, bool AddLimitSecurity)
+    {
+        if(AddLimitSecurity && @this.keys[@this.keys.Length-1].time <= time)
+        {
+            return @this.Evaluate(@this.keys[@this.keys.Length - 1].time);
+        }
+        else
+        {
+            return @this.Evaluate(time);
+        }
+    }
 }
 
 public class HavanaManager : MonoBehaviour {
@@ -52,7 +64,7 @@ public class HavanaManager : MonoBehaviour {
             if (isSpeedBlocked) yield return null;
 
             TransitionCurveCursor += Time.deltaTime;
-            Debug.Log($"{TransitionCurveCursor} => {GlobalTransitionInterval}");
+            //Debug.Log($"{TransitionCurveCursor} => {GlobalTransitionInterval}");
             yield return null;
         }
 
