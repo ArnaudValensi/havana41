@@ -21,10 +21,11 @@ public class ExplosionAnimations : MonoBehaviour {
 
 		if (criticAnimation.Length > 0 && Random.Range(0f, 1f) < criticChances) {
 			animationToPlay = criticAnimation;
-			skyBlink.Blink();
 		} else {
 			animationToPlay = animationName;
 		}
+
+		skyBlink.Blink();
 
 		animator.Play(animationToPlay);
 		StartCoroutine(OnComplete(animationToPlay));
