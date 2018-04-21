@@ -16,8 +16,10 @@ public class OnStartKeepArena : MonoBehaviour {
         _toKeep.gameObject.SetActive(false);
     }
 
-    public void CreateSession()
+    public GameObject CreateSession()
     {
-        GameObject.Instantiate(_toKeep.gameObject, _toKeep.position, _toKeep.rotation, _toKeep.parent).SetActive(true);
+        var go = GameObject.Instantiate(_toKeep.gameObject, _toKeep.position, _toKeep.rotation, _toKeep.parent);
+        go.SetActive(true);
+        return go;
     }
 }

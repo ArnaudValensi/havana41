@@ -23,13 +23,14 @@ public class ContinueButton : MonoBehaviour {
 
     IEnumerator Continue()
     {
-        keeper.CreateSession();
-        GameObject.FindObjectOfType<Managers>().Awake();
-
+        var go = keeper.CreateSession();
+        
+        NotificationManager.Instance.FireNotification(EventNotification.GameStart);
         yield return null;
+
+        go.GetComponentInChildren<Managers>(true).Awake();
 
         Managers.Audio.PlayUIClick();
         Managers.Game.SetState(typeof(GamePlayState));
-        NotificationManager.Instance.FireNotification(EventNotification.GameStart);
     }
 }
