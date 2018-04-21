@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 61267569703372470}
   - component: {fileID: 50197048382397870}
   - component: {fileID: 114297005855065970}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Block
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 61687027211023510}
   - component: {fileID: 50634094891945490}
   - component: {fileID: 114004159309320836}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Block
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 61707992873204304}
   - component: {fileID: 50362698047823796}
   - component: {fileID: 114777621793900622}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Block
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 61551548363791656}
   - component: {fileID: 50140321254382286}
   - component: {fileID: 114760710090746984}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Block
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -408,6 +408,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationPivot: {fileID: 4000013048453682}
+  _onStopFalling:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   isFastTransition: 0
   fastTransitionInterval: 0.05
 --- !u!114 &114004159309320836
