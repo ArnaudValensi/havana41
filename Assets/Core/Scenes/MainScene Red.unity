@@ -15727,6 +15727,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1077225383830346, guid: da2754ebb2a074a828a0dbd2d82ab539, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714759477255522, guid: da2754ebb2a074a828a0dbd2d82ab539, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114642580234634948, guid: da2754ebb2a074a828a0dbd2d82ab539,
+        type: 2}
+      propertyPath: BulletConfiguration.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 1960972061483692, guid: f5b818226864f424b9bccf9ae8a6bec4,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da2754ebb2a074a828a0dbd2d82ab539, type: 2}
   m_IsPrefabParent: 0

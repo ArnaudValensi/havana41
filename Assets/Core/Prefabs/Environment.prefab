@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212082903382791896}
   - component: {fileID: 95552173429330928}
   - component: {fileID: 114268575451061716}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: GunExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4642213224300752}
   - component: {fileID: 114642580234634948}
   - component: {fileID: 82570080557136034}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}

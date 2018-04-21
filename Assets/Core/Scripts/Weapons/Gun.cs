@@ -53,7 +53,7 @@ public class Gun : MonoBehaviour {
 
 	public void Update() {
 
-		if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.W)) {
+		if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Q)) {
 			for (int i = 0; i < nbBulletsPerShot; i++) {
 				Fire(BulletType.Move);
 			}
@@ -96,7 +96,7 @@ public class Gun : MonoBehaviour {
     void Fire(BulletType bulletType= BulletType.Move) {
 
         var bulletPrefab = GetBulletPrefab(bulletType) ?? this.bulletPrefab;
-
+        
 		// Create bullet
 		GameObject bullet = Instantiate(
 			bulletPrefab,
