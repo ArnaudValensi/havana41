@@ -28,12 +28,13 @@ public class GridManager : MonoBehaviour
         return ((int)pos.x >= 0 && (int)pos.x < 10 && (int)pos.y >= 0);
     }
 
-    public void PlaceShape()
+    public void PlaceShape(ShapeMovementController shapeToPlace)
     {
         int y = 0;
 
-        StartCoroutine(DeleteRows(y));
+        shapeToPlace?.ManageStopFalling();
 
+        StartCoroutine(DeleteRows(y));
     }
 
     IEnumerator DeleteRows(int k)

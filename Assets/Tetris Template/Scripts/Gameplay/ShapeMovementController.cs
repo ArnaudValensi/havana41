@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public class ShapeMovementController : MonoBehaviour {
 
@@ -13,17 +14,33 @@ public class ShapeMovementController : MonoBehaviour {
 
     public Transform rotationPivot;
 
-    public float transitionInterval
-        => isFastTransition ? HavanaManager.Instance.FastTransitionInterval : HavanaManager.Instance.GlobalTransitionInterval;
+    // PlaySFX or Sound
+    [SerializeField] UnityEvent _onStopFalling; 
 
     public bool isFastTransition = false;
     public float fastTransitionInterval ;
     private float lastFall = 0;
+
+    public float transitionInterval
+        => isFastTransition ? HavanaManager.Instance.FastTransitionInterval : HavanaManager.Instance.GlobalTransitionInterval;
     
     /// <summary>
     /// Define is current falling shape
     /// </summary>
-    internal bool isFalling;
+    internal bool isFalling { get; private set; }
+
+    public void ManageStopFalling()
+    {
+        Debug.Log($"{name} stops falling");
+        foreach(var el in GetComponentsInChildren<Collider2D>())
+        {
+            el.enabled = false;
+        }
+
+        isFalling = false;
+
+        _onStopFalling.Invoke();
+    }
 
     public void ShapeUpdate()
     {
@@ -91,7 +108,7 @@ public class ShapeMovementController : MonoBehaviour {
                 Managers.Game.currentShape = null;
 
                 // Clear filled horizontal lines
-                Managers.Grid.PlaceShape();
+                Managers.Grid.PlaceShape(this);
             }
 
             lastFall = Time.time;
@@ -102,4 +119,6 @@ public class ShapeMovementController : MonoBehaviour {
     {
         isFastTransition = true;
     }
+
+
 }
