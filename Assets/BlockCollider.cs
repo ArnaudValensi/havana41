@@ -22,7 +22,7 @@ public class BlockCollider : MonoBehaviour {
                 _shapeController.InstantFall();
                 break;
             case "Move":
-                if (_shapeController.transform.position.y < go.transform.position.y)
+                if (_shapeController.transform.position.x > go.transform.position.x)
                 {
                     _shapeController.MoveHorizontal(ShapeMovementController.Direction.Right);
                 }
