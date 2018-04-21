@@ -8,6 +8,7 @@ public class BlockCollider : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("test");
         if (_shapeController == null) _shapeController = GetComponentInParent<ShapeMovementController>();
 
         // if is actif
