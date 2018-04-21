@@ -62,7 +62,7 @@ public class PlayerMotor : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetAxis("Vertical") < 0 && isGroundedOnPlatform) {
+		if (Input.GetKeyDown(KeyCode.S) && isGroundedOnPlatform) {
 			StartCoroutine(GoThroughPlatform());
 		}
 
@@ -104,7 +104,7 @@ public class PlayerMotor : MonoBehaviour {
 	}
 
 	IEnumerator GoThroughPlatform() {
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 7; i++) {
 			controller.ignoreOneWayPlatformsThisFrame = true;
 			yield return null;
 		}
