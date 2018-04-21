@@ -17337,6 +17337,13 @@ MonoBehaviour:
   - {fileID: 1000013774893932, guid: 5127458934b5b5f4196bc48eb5fab910, type: 2}
   - {fileID: 1000011639141054, guid: e63f065e3be81334281c50801b9d8b56, type: 2}
   - {fileID: 1000013607061508, guid: f2e46dfff2b4c8a449f639f3007cd8b3, type: 2}
+  _startPositionPossibility:
+  - {fileID: 1850472784}
+  - {fileID: 1074103226}
+  - {fileID: 170578741}
+  - {fileID: 1726108559}
+  - {fileID: 402076389}
+  - {fileID: 1556272381}
 --- !u!114 &1855689515
 MonoBehaviour:
   m_ObjectHideFlags: 0
