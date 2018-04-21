@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class Helper
@@ -15,18 +16,14 @@ public class HavanaManager : MonoBehaviour {
 
 	public static HavanaManager Instance { get; set; }
 
-    [SerializeField] float _globalTransitionInterval = 0.8f;
     [SerializeField] float _fastTransitionInterval;
 
     public float GlobalTransitionInterval
     {
         get
         {
-            return _globalTransitionInterval;
-        }
-        set
-        {
-            _globalTransitionInterval = value;
+            if (GlobalTransitionCurve.keys.Last().time <= TransitionCurveCursor) return GlobalTransitionCurve.keys.Last().value;
+            return GlobalTransitionCurve.Evaluate(TransitionCurveCursor);
         }
     }
     public float FastTransitionInterval
@@ -37,13 +34,27 @@ public class HavanaManager : MonoBehaviour {
         }
     }
 
+    [SerializeField] AnimationCurve GlobalTransitionCurve;
+
+    float TransitionCurveCursor = 0f;
+    static public bool isSpeedBlocked = false;
+
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Debug.LogError("MultiHavanaManager");
+        Instance = this;
+        StartCoroutine(IncreaseGameSpeed());
+    }
 
+    IEnumerator IncreaseGameSpeed()
+    {
+        while(true)
+        {
+            if (isSpeedBlocked) yield return null;
 
-
+            TransitionCurveCursor += Time.deltaTime;
+            Debug.Log($"{TransitionCurveCursor} => {GlobalTransitionInterval}");
+            yield return null;
+        }
 
     }
 
