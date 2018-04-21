@@ -3,10 +3,23 @@ using System.Collections;
 
 public class ShapeMovementController : MonoBehaviour {
 
+    #region InternalType
+    public enum Direction
+    {
+        Left,
+        Right
+    }
+    #endregion
+
     public Transform rotationPivot;
     public float transitionInterval = 0.8f;
     public float fastTransitionInterval ;
     private float lastFall = 0;
+    
+    /// <summary>
+    /// Define is current falling shape
+    /// </summary>
+    internal bool isFalling;
 
     public void ShapeUpdate()
     {
@@ -30,6 +43,8 @@ public class ShapeMovementController : MonoBehaviour {
         }
     }
 
+    
+    //public void MoveHorizontal(Direction direction) => MoveHorizontal(direction == Direction.Left ? Vector3.left : Vector3.right);
     public void MoveHorizontal(Vector2 direction)
     {
         float deltaMovement = (direction.Equals(Vector2.right)) ? 1.0f : -1.0f;

@@ -2,10 +2,12 @@
 using System.Collections;
 
 public class MenuState : _StatesBase {
-	
-	#region implemented abstract members of GameState
 
-	public override void OnActivate ()
+    [SerializeField] bool _logUpdate = false;
+
+    #region implemented abstract members of GameState
+
+    public override void OnActivate ()
 	{		
 		Debug.Log ("<color=green>Menu State</color> OnActive");	
 
@@ -22,7 +24,8 @@ public class MenuState : _StatesBase {
 
 	public override void OnUpdate ()
 	{
-		Debug.Log ("<color=yellow>Menu State</color> OnUpdate");
+        if(_logUpdate)
+		    Debug.Log ("<color=yellow>Menu State</color> OnUpdate");
 	}
 
 	#endregion
