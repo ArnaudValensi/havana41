@@ -8,7 +8,6 @@ public class BlockCollider : MonoBehaviour {
 
     public void Touch(GameObject go)
     {
-        Debug.Log("CollisionEnter");
         _shapeController = _shapeController ?? GetComponentInParent<ShapeMovementController>();
 
         switch (go.tag)
@@ -20,10 +19,10 @@ public class BlockCollider : MonoBehaviour {
                 _shapeController.RotateClockWise(false);
                 break;
             case "Fall":
-                _shapeController.FreeFall();
+                _shapeController.InstantFall();
                 break;
             case "Move":
-                if (_shapeController.transform.position.x > _shapeController.transform.position.x)
+                if (_shapeController.transform.position.y < go.transform.position.y)
                 {
                     _shapeController.MoveHorizontal(ShapeMovementController.Direction.Right);
                 }

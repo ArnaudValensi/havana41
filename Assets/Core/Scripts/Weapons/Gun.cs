@@ -1,9 +1,30 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class Gun : MonoBehaviour {
 
-	public bool flipX;
+    #region InternalType
+    enum BulletType
+    {
+        Null,
+        Move,
+        RotateClock,
+        RotateNClock,
+        Fall
+    }
+    [System.Serializable]
+    class BulletTypePrefabAsso
+    {
+        public BulletType type;
+        public GameObject prefab;
+    }
+    #endregion
+
+
+
+    public bool flipX;
 	public float bulletFrequency = 2f;
 	public GameObject bulletPrefab;
 	public AudioClip[] audioClips;
@@ -17,7 +38,10 @@ public class Gun : MonoBehaviour {
 	public float maxBulletRotation;
 	public int nbBulletsPerShot = 3;
 
-	GameObject bulletsHolder;
+    [Space(10)]
+    [SerializeField] List<BulletTypePrefabAsso> BulletConfiguration;
+
+    GameObject bulletsHolder;
 	AudioSource audioSource;
 	CameraShake cameraShake;
 
@@ -28,18 +52,51 @@ public class Gun : MonoBehaviour {
 	}
 
 	public void Update() {
-		if (Input.GetKeyDown(KeyCode.Return)) {
+
+		if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.W)) {
 			for (int i = 0; i < nbBulletsPerShot; i++) {
-				Fire();
+				Fire(BulletType.Move);
 			}
 		}
 
-		if (Input.GetKeyDown(KeyCode.R)) {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            for (int i = 0; i < nbBulletsPerShot; i++)
+            {
+                Fire(BulletType.RotateClock);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            for (int i = 0; i < nbBulletsPerShot; i++)
+            {
+                Fire(BulletType.RotateNClock);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            for (int i = 0; i < nbBulletsPerShot; i++)
+            {
+                Fire(BulletType.Fall);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R)) {
 			nbBulletsPerShot = (nbBulletsPerShot == 1) ? 3 : 1;
 		}
 	}
 
-	void Fire() {
+    
+
+
+    GameObject GetBulletPrefab(BulletType bulletType) => BulletConfiguration.FirstOrDefault( i => i.type== bulletType)?.prefab ?? null;
+
+    void Fire(BulletType bulletType= BulletType.Move) {
+
+        var bulletPrefab = GetBulletPrefab(bulletType) ?? this.bulletPrefab;
+
 		// Create bullet
 		GameObject bullet = Instantiate(
 			bulletPrefab,
