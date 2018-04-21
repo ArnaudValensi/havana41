@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GamePlayState : _StatesBase {
 
+    [SerializeField] bool _logUpdate=false;
     private float gamePlayDuration;
 
 	#region implemented abstract members of _StatesBase
@@ -25,7 +26,9 @@ public class GamePlayState : _StatesBase {
 	{
         if(Managers.Game.currentShape!=null)
             Managers.Game.currentShape.movementController.ShapeUpdate();
-		Debug.Log ("<color=yellow>Gameplay State</color> OnUpdate");
+
+        if(_logUpdate)
+		    Debug.Log ("<color=yellow>Gameplay State</color> OnUpdate");
 	}
 	#endregion
 

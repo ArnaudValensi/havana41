@@ -3,6 +3,8 @@ using System.Collections;
 
 public class GameOverState : _StatesBase {
 
+    [SerializeField] bool _updateLog=false;
+
 	#region implemented abstract members of _StatesBase
 	public override void OnActivate ()
 	{
@@ -23,7 +25,8 @@ public class GameOverState : _StatesBase {
 
 	public override void OnUpdate ()
 	{
-		Debug.Log ("<color=yellow>Game Over State</color> OnUpdate");
+        if(_updateLog)
+		    Debug.Log ("<color=yellow>Game Over State</color> OnUpdate");
 	}
 	#endregion
 

@@ -32,7 +32,7 @@ public class CameraManager : MonoBehaviour {
     {
         if (main.orthographicSize != _inGameSize)
         {
-            main.DOOrthoSize(_inGameSize, 1f).SetEase(Ease.OutCubic).OnComplete(() =>
+            main.DOOrthoSize(_inGameSize, 0f).SetEase(Ease.OutCubic).OnComplete(() =>
              {
                  StartCoroutine(StartGamePlay());
              });

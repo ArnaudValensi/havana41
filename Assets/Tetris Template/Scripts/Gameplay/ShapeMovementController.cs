@@ -1,12 +1,46 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public class ShapeMovementController : MonoBehaviour {
 
+    #region InternalType
+    public enum Direction
+    {
+        Left,
+        Right
+    }
+    #endregion
+
     public Transform rotationPivot;
-    public float transitionInterval = 0.8f;
+
+    // PlaySFX or Sound
+    [SerializeField] UnityEvent _onStopFalling; 
+
+    public bool isFastTransition = false;
     public float fastTransitionInterval ;
     private float lastFall = 0;
+
+    public float transitionInterval
+        => isFastTransition ? HavanaManager.Instance.FastTransitionInterval : HavanaManager.Instance.GlobalTransitionInterval;
+    
+    /// <summary>
+    /// Define is current falling shape
+    /// </summary>
+    internal bool isFalling { get; private set; }
+
+    public void ManageStopFalling()
+    {
+        Debug.Log($"{name} stops falling");
+        foreach(var el in GetComponentsInChildren<Collider2D>())
+        {
+            el.enabled = false;
+        }
+
+        isFalling = false;
+
+        _onStopFalling.Invoke();
+    }
 
     public void ShapeUpdate()
     {
@@ -30,6 +64,7 @@ public class ShapeMovementController : MonoBehaviour {
         }
     }
 
+    public void MoveHorizontal(Direction direction) => MoveHorizontal(direction == Direction.Left ? Vector3.left : Vector3.right);
     public void MoveHorizontal(Vector2 direction)
     {
         float deltaMovement = (direction.Equals(Vector2.right)) ? 1.0f : -1.0f;
@@ -73,7 +108,7 @@ public class ShapeMovementController : MonoBehaviour {
                 Managers.Game.currentShape = null;
 
                 // Clear filled horizontal lines
-                Managers.Grid.PlaceShape();
+                Managers.Grid.PlaceShape(this);
             }
 
             lastFall = Time.time;
@@ -82,6 +117,8 @@ public class ShapeMovementController : MonoBehaviour {
     
     public void InstantFall()
     {
-        transitionInterval = fastTransitionInterval;
+        isFastTransition = true;
     }
+
+
 }
