@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Prime31;
 using UnityEngine.Events;
+using System.Collections;
 
 [RequireComponent(typeof(CharacterController2D))]
 public class PlayerMotor : MonoBehaviour {
@@ -59,6 +60,10 @@ public class PlayerMotor : MonoBehaviour {
 			}
 		}
 
+		if (Input.GetAxis("Vertical") < 0 && isGroundedOnPlatform) {
+			StartCoroutine(GoThroughPlatform());
+		}
+
 		controller.move(velocity * Time.deltaTime);
 
 		// Flip model if needed
@@ -94,5 +99,14 @@ public class PlayerMotor : MonoBehaviour {
 		}
 
 		gun.transform.right = gunRight;
+	}
+
+	IEnumerator GoThroughPlatform() {
+		for (int i = 0; i < 10; i++) {
+			controller.ignoreOneWayPlatformsThisFrame = true;
+			yield return null;
+		}
+
+		yield return null;
 	}
 }
