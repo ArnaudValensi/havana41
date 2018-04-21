@@ -12,7 +12,7 @@ public class ShapeMovementController : MonoBehaviour {
     #endregion
 
     public Transform rotationPivot;
-    public float transitionInterval = 0.8f;
+    public float transitionInterval => HavanaManager.Instance.GlobalTransitionInterval
     public float fastTransitionInterval ;
     private float lastFall = 0;
     
