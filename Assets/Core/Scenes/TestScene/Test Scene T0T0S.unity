@@ -183,6 +183,7 @@ Transform:
   - {fileID: 1479726273}
   - {fileID: 560462435}
   - {fileID: 1310128829}
+  - {fileID: 1060146040}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -379,7 +380,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 95845067}
     m_Modifications:
     - target: {fileID: 4966921452483418, guid: 1a18b43bfed43f24eb29c540af113501, type: 2}
       propertyPath: m_LocalPosition.x
@@ -395,15 +396,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4966921452483418, guid: 1a18b43bfed43f24eb29c540af113501, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4966921452483418, guid: 1a18b43bfed43f24eb29c540af113501, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4966921452483418, guid: 1a18b43bfed43f24eb29c540af113501, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4966921452483418, guid: 1a18b43bfed43f24eb29c540af113501, type: 2}
       propertyPath: m_LocalRotation.w
@@ -411,11 +412,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4966921452483418, guid: 1a18b43bfed43f24eb29c540af113501, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1a18b43bfed43f24eb29c540af113501, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1060146040 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4966921452483418, guid: 1a18b43bfed43f24eb29c540af113501,
+    type: 2}
+  m_PrefabInternal: {fileID: 712631433}
 --- !u!4 &1310128829 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4259869763505914, guid: 3f41877e509958e4c850e1ddfabf2af6,
