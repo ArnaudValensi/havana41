@@ -180,11 +180,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114613169437075894, guid: 3ca159af0f6c54b30ab28aae2039d09f,
-        type: 2}
-      propertyPath: platformMask.m_Bits
-      value: 1280
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ca159af0f6c54b30ab28aae2039d09f, type: 2}
   m_IsPrefabParent: 0
