@@ -29,11 +29,5 @@ public class CoinSpawner : MonoBehaviour
         isRunning = false;
     }
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if(col.transform.tag == "Player")
-        {
-            Destroy(currentCoin);
-        }
-    }
+    
 }
