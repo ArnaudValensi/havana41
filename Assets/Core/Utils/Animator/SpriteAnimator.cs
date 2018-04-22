@@ -22,13 +22,13 @@ public class SpriteAnimator : MonoBehaviour {
 	public SpriteRenderer spriteRenderer;
 	public Animation[] animations;
 
-	public bool playing { get; private set; }
+	public bool playing;
 
 	public Animation currentAnimation { get; private set; }
 
 	public int currentFrame { get; private set; }
 
-	public bool loop { get; private set; }
+	public bool loop;
 
 	public string playAnimationOnStart;
 

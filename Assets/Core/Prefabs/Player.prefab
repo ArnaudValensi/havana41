@@ -55,6 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4116744360176796}
   - component: {fileID: 212928920548532592}
+  - component: {fileID: 114805848453562302}
   - component: {fileID: 61540111876669212}
   - component: {fileID: 114077843061787232}
   - component: {fileID: 114198198820841930}
@@ -73,9 +74,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1725587952510202}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.06, y: -2.87, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4769587278571426}
   m_Father: {fileID: 0}
@@ -143,8 +144,8 @@ BoxCollider2D:
   m_Offset: {x: 0.009094715, y: -0.04464674}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -403,6 +404,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6257bab7437d74356bf5accec63eaa4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114805848453562302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1725587952510202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84508e2f77b3b416680cf03231474749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 212928920548532592}
+  animations:
+  - name: Idle
+    fps: 6
+    frames:
+    - {fileID: 21300000, guid: 88ce450b14e0943e8aa74ecf683b2e9f, type: 3}
+    - {fileID: 21300002, guid: 88ce450b14e0943e8aa74ecf683b2e9f, type: 3}
+    - {fileID: 21300004, guid: 88ce450b14e0943e8aa74ecf683b2e9f, type: 3}
+    - {fileID: 21300006, guid: 88ce450b14e0943e8aa74ecf683b2e9f, type: 3}
+    - {fileID: 21300008, guid: 88ce450b14e0943e8aa74ecf683b2e9f, type: 3}
+    - {fileID: 21300010, guid: 88ce450b14e0943e8aa74ecf683b2e9f, type: 3}
+    triggers: []
+  - name: Run
+    fps: 12
+    frames:
+    - {fileID: 21300000, guid: 5207896f4f13c4af7bce287b881de809, type: 3}
+    - {fileID: 21300002, guid: 5207896f4f13c4af7bce287b881de809, type: 3}
+    - {fileID: 21300004, guid: 5207896f4f13c4af7bce287b881de809, type: 3}
+    - {fileID: 21300006, guid: 5207896f4f13c4af7bce287b881de809, type: 3}
+    - {fileID: 21300008, guid: 5207896f4f13c4af7bce287b881de809, type: 3}
+    triggers: []
+  playing: 0
+  loop: 0
+  playAnimationOnStart: Idle
 --- !u!212 &212195205820252454
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -481,7 +517,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2c2d6073b53a34afebd0fc9e761fb246, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88ce450b14e0943e8aa74ecf683b2e9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
