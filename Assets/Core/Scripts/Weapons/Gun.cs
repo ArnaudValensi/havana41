@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(LineRenderer))]
 public class Gun : MonoBehaviour {
 
     #region InternalType
@@ -38,6 +39,7 @@ public class Gun : MonoBehaviour {
 	public bool randomBulletRotation;
 	public float maxBulletRotation;
 	public int nbBulletsPerShot = 3;
+	public LineRenderer laserLine;
 
     [Space(10)]
     [SerializeField] bool _useRaycast = false;
@@ -55,6 +57,7 @@ public class Gun : MonoBehaviour {
 		bulletsHolder = GameObject.Find("BulletsHolder");
 		audioSource = GetComponent<AudioSource>();
 		cameraShake = Camera.main.GetComponent<CameraShake>();
+		laserLine = GetComponent<LineRenderer>();
 	}
 
 	public void Update() {
@@ -138,6 +141,8 @@ public class Gun : MonoBehaviour {
                     TouchAction(result,false);
                 }
             }
+
+			EnableLaser(result);
         }
 
 		// Gun sound
@@ -165,6 +170,16 @@ public class Gun : MonoBehaviour {
 		}
 
 		audioSource.Play();
+	}
+
+	void EnableLaser(RaycastHit2D hit) {
+		laserLine.enabled = true;
+		laserLine.SetPosition(0, transform.position);
+		laserLine.SetPosition(1, hit.point + hit.normal);
+	}
+
+	void DisableLaser() {
+		laserLine.enabled = false;
 	}
 
 }
