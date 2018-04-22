@@ -2,10 +2,8 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
-using DG.Tweening;
 
 [RequireComponent(typeof(AudioSource))]
-[RequireComponent(typeof(LineRenderer))]
 public class Gun : MonoBehaviour {
 
     #region InternalType
@@ -17,6 +15,7 @@ public class Gun : MonoBehaviour {
         TurnLeft,
         Fall
     }
+
     [System.Serializable]
     class BulletTypePrefabAsso
     {
@@ -24,8 +23,6 @@ public class Gun : MonoBehaviour {
         public GameObject prefab;
     }
     #endregion
-
-
 
     public bool flipX;
 	public float bulletFrequency = 2f;
@@ -40,8 +37,12 @@ public class Gun : MonoBehaviour {
 	public bool randomBulletRotation;
 	public float maxBulletRotation;
 	public int nbBulletsPerShot = 3;
+	public Laser laser1;
+	public Laser laser2;
 	public Color laserColor1;
 	public Color laserColor2;
+	public Color laser2Color1;
+	public Color laser2Color2;
 
     [Space(10)]
     [SerializeField] bool _useRaycast = false;
@@ -54,13 +55,11 @@ public class Gun : MonoBehaviour {
     GameObject bulletsHolder;
 	AudioSource audioSource;
 	CameraShake cameraShake;
-	LineRenderer laserLine;
 
 	void Start() {
 		bulletsHolder = GameObject.Find("BulletsHolder");
 		audioSource = GetComponent<AudioSource>();
 		cameraShake = Camera.main.GetComponent<CameraShake>();
-		laserLine = GetComponent<LineRenderer>();
 	}
 
 	public void Update() {
@@ -145,7 +144,7 @@ public class Gun : MonoBehaviour {
                 }
             }
 
-			EnableLaser(result);
+			laser1.Shoot(laserColor1, laserColor2, transform.position, result.point + result.normal);
         }
 
 		// Gun sound
@@ -174,14 +173,4 @@ public class Gun : MonoBehaviour {
 
 		audioSource.Play();
 	}
-
-	void EnableLaser(RaycastHit2D hit) {
-		laserLine.enabled = true;
-		laserLine.SetPosition(0, transform.position);
-		laserLine.SetPosition(1, hit.point + hit.normal);
-
-		Color2 startColor = new Color2(laserColor1, laserColor2);
-		laserLine.DOColor(startColor, new Color2(), 1);
-	}
-
 }
