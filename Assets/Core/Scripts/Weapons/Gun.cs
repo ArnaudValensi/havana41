@@ -127,7 +127,20 @@ public class Gun : MonoBehaviour {
         else
         {
             RaycastHit2D result;
+
+			Color color1;
+			Color color2;
+
+			if (bulletType == BulletType.Move) {
+				color1 = laserColor1;
+				color2 = laserColor2;
+			} else {
+				color1 = laser2Color1;
+				color2 = laser2Color2;
+			}
+
             Debug.DrawRay(transform.position, transform.right * 1000 + Vector3.up * 0.01f, Color.blue, 2f);
+
             int layer = 1 << 9;
             layer += 1 << 13;
             if (result = Physics2D.Raycast(transform.position, transform.right , 1000, layer))
@@ -136,7 +149,7 @@ public class Gun : MonoBehaviour {
                 System.Action<RaycastHit2D, bool> TouchAction = (r, inverse) => r.transform.GetComponent<BlockCollider>()?.Touch(gameObject, bulletType, inverse);
                 if (result.transform.gameObject.layer == 13) // Warp
                 {
-					result.transform.GetComponent<LoopFire>().ReFire(transform.position, transform.right, laser2, laser2Color1, laserColor2, TouchAction);
+					result.transform.GetComponent<LoopFire>().ReFire(transform.position, transform.right, laser2, color1, color2, TouchAction);
                 }
                 else
                 {
@@ -144,8 +157,7 @@ public class Gun : MonoBehaviour {
                 }
             }
 
-			laser1.Shoot(laserColor1, laserColor2, transform.position, result.point + result.normal);
-//			laser2.Shoot(laser2Color1, laser2Color2, transform.position + Vector3.up, result.point + result.normal);
+			laser1.Shoot(color1, color2, transform.position, result.point + result.normal);
         }
 
 		// Gun sound
