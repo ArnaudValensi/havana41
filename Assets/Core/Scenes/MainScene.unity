@@ -5378,6 +5378,14 @@ Prefab:
       propertyPath: _useRaycast
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1862295540887798, guid: da2754ebb2a074a828a0dbd2d82ab539, type: 2}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314104209226484, guid: da2754ebb2a074a828a0dbd2d82ab539, type: 2}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da2754ebb2a074a828a0dbd2d82ab539, type: 2}
   m_IsPrefabParent: 0
@@ -17607,6 +17615,23 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010964644938, guid: ff19987311d5db94d985e3178e9d4664,
     type: 2}
   m_PrefabInternal: {fileID: 1565139639}
+--- !u!1 &1569086149 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1314104209226484, guid: da2754ebb2a074a828a0dbd2d82ab539,
+    type: 2}
+  m_PrefabInternal: {fileID: 268010545}
+--- !u!114 &1569086153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1569086149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7155d774ac59234a9d64d0e1550b68d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  other: {fileID: 1838551353}
 --- !u!1 &1571015039
 GameObject:
   m_ObjectHideFlags: 0
@@ -20122,6 +20147,23 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010964644938, guid: ff19987311d5db94d985e3178e9d4664,
     type: 2}
   m_PrefabInternal: {fileID: 1804586672}
+--- !u!1 &1838551352 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1862295540887798, guid: da2754ebb2a074a828a0dbd2d82ab539,
+    type: 2}
+  m_PrefabInternal: {fileID: 268010545}
+--- !u!114 &1838551353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1838551352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7155d774ac59234a9d64d0e1550b68d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  other: {fileID: 1569086153}
 --- !u!1001 &1840772540
 Prefab:
   m_ObjectHideFlags: 0
@@ -20494,7 +20536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ff2cbb657d5a7468a70b52bffd446a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigKeyBoard: 1
+  trigKeyBoard: 0
   isActive: 0
   inputType: 0
   tapInterval: 0.1
