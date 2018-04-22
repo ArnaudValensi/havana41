@@ -13,7 +13,8 @@ public class GamePlayState : _StatesBase {
         Managers.UI.ActivateUI(Menus.INGAME);
 
         gamePlayDuration = Time.time;
-        Managers.Cam.ZoomIn();
+		Managers.Spawner.Spawn();
+		Managers.Game.isGameActive = true;
         Debug.Log ("<color=green>Gameplay State</color> OnActive");	
 	}
 	public override void OnDeactivate ()
