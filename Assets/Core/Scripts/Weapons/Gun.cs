@@ -15,6 +15,7 @@ public class Gun : MonoBehaviour {
         TurnLeft,
         Fall
     }
+
     [System.Serializable]
     class BulletTypePrefabAsso
     {
@@ -22,8 +23,6 @@ public class Gun : MonoBehaviour {
         public GameObject prefab;
     }
     #endregion
-
-
 
     public bool flipX;
 	public float bulletFrequency = 2f;
@@ -38,6 +37,12 @@ public class Gun : MonoBehaviour {
 	public bool randomBulletRotation;
 	public float maxBulletRotation;
 	public int nbBulletsPerShot = 3;
+	public Laser laser1;
+	public Laser laser2;
+	public Color laserColor1;
+	public Color laserColor2;
+	public Color laser2Color1;
+	public Color laser2Color2;
 
     [Space(10)]
     [SerializeField] bool _useRaycast = false;
@@ -122,22 +127,37 @@ public class Gun : MonoBehaviour {
         else
         {
             RaycastHit2D result;
+
+			Color color1;
+			Color color2;
+
+			if (bulletType == BulletType.Move) {
+				color1 = laserColor1;
+				color2 = laserColor2;
+			} else {
+				color1 = laser2Color1;
+				color2 = laser2Color2;
+			}
+
             Debug.DrawRay(transform.position, transform.right * 1000 + Vector3.up * 0.01f, Color.blue, 2f);
+
             int layer = 1 << 9;
             layer += 1 << 13;
             if (result = Physics2D.Raycast(transform.position, transform.right , 1000, layer))
             {
                 Debug.Log($"touch {result.transform}");
-                System.Action<RaycastHit2D,bool> TouchAction = (r,inverse) => r.transform.GetComponent<BlockCollider>()?.Touch(gameObject, bulletType,inverse);
-                if (result.transform.gameObject.layer == 13)
+                System.Action<RaycastHit2D, bool> TouchAction = (r, inverse) => r.transform.GetComponent<BlockCollider>()?.Touch(gameObject, bulletType, inverse);
+                if (result.transform.gameObject.layer == 13) // Warp
                 {
-                    result.transform.GetComponent<LoopFire>().ReFire(transform.position, transform.right, TouchAction);
+					result.transform.GetComponent<LoopFire>().ReFire(transform.position, transform.right, laser2, color1, color2, TouchAction);
                 }
                 else
                 {
                     TouchAction(result,false);
                 }
             }
+
+			laser1.Shoot(color1, color2, transform.position, result.point + result.normal);
         }
 
 		// Gun sound
@@ -166,5 +186,4 @@ public class Gun : MonoBehaviour {
 
 		audioSource.Play();
 	}
-
 }
