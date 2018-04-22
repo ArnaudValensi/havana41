@@ -124,10 +124,19 @@ public class Gun : MonoBehaviour {
             RaycastHit2D result;
             Debug.DrawRay(transform.position, transform.right * 1000 + Vector3.up * 0.01f, Color.blue, 2f);
             int layer = 1 << 9;
+            layer += 1 << 12;
             if (result = Physics2D.Raycast(transform.position, transform.right , 1000, layer))
             {
                 Debug.Log($"touch {result.transform}");
-                result.transform.GetComponent<BlockCollider>()?.Touch(gameObject, bulletType);
+                System.Action<RaycastHit2D,bool> TouchAction = (r,inverse) => r.transform.GetComponent<BlockCollider>()?.Touch(gameObject, bulletType,inverse);
+                if (result.transform.gameObject.layer == 12)
+                {
+                    result.transform.GetComponent<LoopFire>().ReFire(transform.position, transform.right, TouchAction);
+                }
+                else
+                {
+                    TouchAction(result,false);
+                }
             }
         }
 

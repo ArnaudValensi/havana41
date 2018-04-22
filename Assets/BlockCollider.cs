@@ -6,7 +6,7 @@ public class BlockCollider : MonoBehaviour {
 
     ShapeMovementController _shapeController=null;
 
-    public void Touch(GameObject go, Gun.BulletType type= Gun.BulletType.Null)
+    public void Touch(GameObject go, Gun.BulletType type= Gun.BulletType.Null, bool inverse=false)
     {
         string order = type == Gun.BulletType.Null ? go.tag : System.Enum.GetName(typeof(Gun.BulletType), type);
         _shapeController = _shapeController ?? GetComponentInParent<ShapeMovementController>();
@@ -25,11 +25,11 @@ public class BlockCollider : MonoBehaviour {
             case "Move":
                 if (_shapeController.transform.position.x > go.transform.position.x)
                 {
-                    _shapeController.MoveHorizontal(ShapeMovementController.Direction.Right);
+                    _shapeController.MoveHorizontal(!inverse ? ShapeMovementController.Direction.Right : ShapeMovementController.Direction.Left);
                 }
                 else
                 {
-                    _shapeController.MoveHorizontal(ShapeMovementController.Direction.Left);
+                    _shapeController.MoveHorizontal(!inverse ? ShapeMovementController.Direction.Left : ShapeMovementController.Direction.Right);
                 }
                 break;
             default:
