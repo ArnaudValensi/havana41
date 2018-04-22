@@ -6,11 +6,12 @@ public class BlockCollider : MonoBehaviour {
 
     ShapeMovementController _shapeController=null;
 
-    public void Touch(GameObject go)
+    public void Touch(GameObject go, Gun.BulletType type= Gun.BulletType.Null)
     {
+        string order = type == Gun.BulletType.Null ? go.tag : System.Enum.GetName(typeof(Gun.BulletType), type);
         _shapeController = _shapeController ?? GetComponentInParent<ShapeMovementController>();
 
-        switch (go.tag)
+        switch (order)
         {
             case "TurnRight":
                 _shapeController.RotateClockWise(true);

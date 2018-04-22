@@ -7,12 +7,12 @@ using UnityEngine.Events;
 public class Gun : MonoBehaviour {
 
     #region InternalType
-    enum BulletType
+    public enum BulletType
     {
         Null,
         Move,
-        RotateClock,
-        RotateNClock,
+        TurnRight,
+        TurnLeft,
         Fall
     }
     [System.Serializable]
@@ -69,7 +69,7 @@ public class Gun : MonoBehaviour {
         {
             for (int i = 0; i < nbBulletsPerShot; i++)
             {
-                Fire(BulletType.RotateClock);
+                Fire(BulletType.TurnRight);
             }
 			onShootRotate.Invoke();
         }
@@ -78,7 +78,7 @@ public class Gun : MonoBehaviour {
         {
             for (int i = 0; i < nbBulletsPerShot; i++)
             {
-                Fire(BulletType.RotateNClock);
+                Fire(BulletType.TurnLeft);
             }
 			onShootRotate.Invoke();
         }
@@ -122,9 +122,12 @@ public class Gun : MonoBehaviour {
         else
         {
             RaycastHit2D result;
-            if (result = Physics2D.Raycast(transform.position, transform.right, 1000, LayerMask.NameToLayer("Block")))
+            Debug.DrawRay(transform.position, transform.right * 1000 + Vector3.up * 0.01f, Color.blue, 2f);
+            int layer = 1 << 9;
+            if (result = Physics2D.Raycast(transform.position, transform.right , 1000, layer))
             {
-                result.transform.GetComponent<BlockCollider>()?.Touch(gameObject);
+                Debug.Log($"touch {result.transform}");
+                result.transform.GetComponent<BlockCollider>()?.Touch(gameObject, bulletType);
             }
         }
 
