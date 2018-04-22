@@ -15,6 +15,7 @@ using System.Collections;
 public class ContinueButton : MonoBehaviour {
 
     [SerializeField] OnStartKeepArena keeper;
+    static bool tuto = true;
 
     public void OnClickContinueButton()
     {
@@ -23,9 +24,18 @@ public class ContinueButton : MonoBehaviour {
 
     IEnumerator Continue()
     {
+        NotificationManager.Instance.FireNotification(EventNotification.GameStart);
+        if(tuto)
+        {
+            yield return new WaitForSeconds(3f);
+            yield return new WaitWhile(() => !Input.anyKey);
+            tuto = false;
+        }
+
+        GetComponent<Animator>().SetTrigger("NextKey");
+
         var go = keeper.CreateSession();
         
-        NotificationManager.Instance.FireNotification(EventNotification.GameStart);
         yield return null;
 
         go.GetComponentInChildren<Managers>(true).Awake();
