@@ -77,6 +77,7 @@ public class GridManager : MonoBehaviour
     public void DeleteRow(int y)
     {
         Managers.Score.OnScore(100);
+        LineCounter.Instance.AddLine(1);
         for (int x = 0; x < 10; ++x)
         {
             Destroy(gameGridcol[x].row[y].gameObject);
