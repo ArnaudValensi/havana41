@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Prime31;
 using UnityEngine.Events;
+using System.Collections;
 
 [RequireComponent(typeof(CharacterController2D))]
 public class PlayerMotor : MonoBehaviour {
@@ -9,10 +10,12 @@ public class PlayerMotor : MonoBehaviour {
 	public float gravity = 30f;
 	public float fallCoef = 2f;
 	public float jumpForce = 14f;
+	public LayerMask platformLayer;
 
 	[ReadOnly] public bool grounded;
 	[ReadOnly] public Vector3 velocity = Vector3.zero;
 	[ReadOnly] public bool flipX;
+	[ReadOnly] public bool isGroundedOnPlatform;
 
 	[SerializeField] UnityEvent onJump;
 	[SerializeField] UnityEvent onPlayerLand;
@@ -23,6 +26,10 @@ public class PlayerMotor : MonoBehaviour {
 	void Start () {
 		controller = GetComponent<CharacterController2D>();
 		gun = transform.Find("Gun").gameObject;
+
+		controller.onControllerCollidedEvent += (RaycastHit2D ray) => {
+			isGroundedOnPlatform = ((1 << ray.transform.gameObject.layer) & platformLayer.value) != 0;
+		};
 	}
 
 	void Update () {
@@ -43,13 +50,20 @@ public class PlayerMotor : MonoBehaviour {
 			}
 		} else {
 			grounded = false;
+			isGroundedOnPlatform = false;
 
 			// If it is falling
 			if (velocity.y < 0) {
 				velocity.y -= gravity * Time.deltaTime * fallCoef;
+			} else if (Input.GetButtonUp("Jump")) {
+				velocity.y = 0f;
 			} else {
 				velocity.y -= gravity * Time.deltaTime;
 			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.S) && isGroundedOnPlatform) {
+			StartCoroutine(GoThroughPlatform());
 		}
 
 		controller.move(velocity * Time.deltaTime);
@@ -87,5 +101,14 @@ public class PlayerMotor : MonoBehaviour {
 		}
 
 		gun.transform.right = gunRight;
+	}
+
+	IEnumerator GoThroughPlatform() {
+		for (int i = 0; i < 7; i++) {
+			controller.ignoreOneWayPlatformsThisFrame = true;
+			yield return null;
+		}
+
+		yield return null;
 	}
 }
