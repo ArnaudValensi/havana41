@@ -17,8 +17,8 @@ public class Laser : MonoBehaviour {
 		laserLine.SetPosition(0, from);
 		laserLine.SetPosition(1, to);
 
-		Color2 startColor = new Color2(color1, color2);
-		laserLine.DOColor(startColor, new Color2(), 1);
+//		Color2 startColor = new Color2(color1, color2);
+//		laserLine.DOColor(startColor, new Color2(), 1);
 	}
 
 }
