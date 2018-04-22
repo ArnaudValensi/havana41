@@ -5287,6 +5287,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114021989485170588, guid: 60e60248d7b8440bb9a876102ac578cb,
+        type: 2}
+      propertyPath: laser2Color1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114021989485170588, guid: 60e60248d7b8440bb9a876102ac578cb,
+        type: 2}
+      propertyPath: laser2Color2.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 60e60248d7b8440bb9a876102ac578cb, type: 2}
   m_IsPrefabParent: 0
