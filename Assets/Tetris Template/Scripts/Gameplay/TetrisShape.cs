@@ -22,6 +22,8 @@ public class TetrisShape : MonoBehaviour
     [HideInInspector]
     public ShapeMovementController movementController;
 
+    bool dontValidateGrid = false;
+
     void Awake()
     {
         movementController = GetComponent<ShapeMovementController>();
@@ -30,6 +32,8 @@ public class TetrisShape : MonoBehaviour
 
     void Start()
     {
+        if (dontValidateGrid) return;
+
         // Default position not valid? Then it's game over
         if (!Managers.Grid.IsValidGridPosition(this.transform))
         {
@@ -43,5 +47,10 @@ public class TetrisShape : MonoBehaviour
         Color temp = Managers.Palette.TurnRandomColorFromTheme();
         foreach (SpriteRenderer renderer in GetComponentsInChildren<SpriteRenderer>().ToList())
             renderer.color = temp;
+    }
+
+    internal void Fill()
+    {
+        dontValidateGrid = true;
     }
 }

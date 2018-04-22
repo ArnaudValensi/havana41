@@ -10,9 +10,9 @@ public class BonusMalus : MonoBehaviour {
     enum BonusMalusType
     {
         Null,
-        AutoLiner_NOIMPL,
+        AutoLiner,
         ScoreBumper,
-        SpeedUp_NOIMPL
+        SpeedUp
     }
     #endregion
 
@@ -23,6 +23,10 @@ public class BonusMalus : MonoBehaviour {
     [Header("SpeedUp Configuration")]
     [SerializeField] AnimationCurve _speedOffsetCurve;
 
+    [Header("Lineargrid conf")]
+    [SerializeField] int _elementToSpawn=3;
+    [SerializeField] GameObject _singleBlockprefab;
+
     bool CanFire = true;
     
 	public void Fire()
@@ -32,12 +36,13 @@ public class BonusMalus : MonoBehaviour {
 
         switch (type)
         {
-            case BonusMalusType.AutoLiner_NOIMPL:
+            case BonusMalusType.AutoLiner:
+                StartCoroutine(AutoLiner());
                 break;
             case BonusMalusType.ScoreBumper:
                 ScoreBumper();
                 break;
-            case BonusMalusType.SpeedUp_NOIMPL:
+            case BonusMalusType.SpeedUp:
                 CanFire = false;
                 StartCoroutine(SpeedUpRoutine());
                 break;
@@ -45,6 +50,27 @@ public class BonusMalus : MonoBehaviour {
             default:
                 break;
         }
+    }
+    
+
+    IEnumerator AutoLiner()
+    {
+        var allGridElement = Managers.Grid.gameGridcol
+            .Select((a, idx) => new { col = a, idx = idx })
+            .OrderByDescending(i => i.idx)
+            .SelectMany((a) => a.col.row.Select((b, idx) => new { col = a.col, colIdx = a.idx, rowIdx = idx, element = b }))
+            .Where(el => el.element == null)
+            .OrderBy(el => el.rowIdx);
+
+        var spawned = 0; 
+
+        foreach(var el in allGridElement)
+        {
+            Managers.Spawner.Spawn(_singleBlockprefab, el.colIdx, el.rowIdx);
+            if (++spawned >= _elementToSpawn) break;
+        }
+        CanFire = false;
+        yield break;
     }
 
     void ScoreBumper()
