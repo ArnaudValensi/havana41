@@ -41,8 +41,8 @@ public class HavanaManager : MonoBehaviour {
     {
         get
         {
-            if (GlobalTransitionCurve.keys.Last().time <= TransitionCurveCursor) return GlobalTransitionCurve.keys.Last().value;
-            return GlobalTransitionCurve.Evaluate(TransitionCurveCursor);
+            if (GlobalTransitionCurve.keys.Last().time <= TransitionCurveCursor) return (GlobalTransitionCurve.keys.Last().value+ SpeedOffset);
+            return GlobalTransitionCurve.Evaluate(TransitionCurveCursor) + SpeedOffset;
         }
     }
     public float FastTransitionInterval
@@ -52,6 +52,13 @@ public class HavanaManager : MonoBehaviour {
             return _fastTransitionInterval;
         }
     }
+
+    public float SpeedOffset
+    {
+        get;
+        set;
+    }
+
 
     [SerializeField] AnimationCurve GlobalTransitionCurve;
 
