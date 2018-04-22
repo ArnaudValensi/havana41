@@ -22,9 +22,11 @@ public class PlayerMotor : MonoBehaviour {
 
 	CharacterController2D controller;
 	GameObject gun;
+	SpriteAnimator animator;
 
 	void Start () {
 		controller = GetComponent<CharacterController2D>();
+		animator = GetComponent<SpriteAnimator>();
 		gun = transform.Find("Gun").gameObject;
 
 		controller.onControllerCollidedEvent += (RaycastHit2D ray) => {
@@ -75,6 +77,12 @@ public class PlayerMotor : MonoBehaviour {
 		} else if (velocity.x < 0 && !flipX) {
 			flipX = true;
 			transform.eulerAngles = new Vector3(0, 180, 0);
+		}
+
+		if (velocity.x == 0f) {
+			animator.Play("Idle");
+		} else {
+			animator.Play("Run");
 		}
 
 		// Set gun position
