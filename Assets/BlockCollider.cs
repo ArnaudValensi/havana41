@@ -19,10 +19,28 @@ public class BlockCollider : MonoBehaviour {
         switch (order)
         {
             case "TurnRight":
-                _shapeController.RotateClockWise(true);
+                if (_shapeController.transform.position.x > go.transform.position.x)
+                {
+                    if(!inverse) _shapeController.RotateClockWise(true);
+                    else _shapeController.RotateClockWise(false);
+                }
+                else
+                {
+                    if (!inverse) _shapeController.RotateClockWise(false);
+                    else _shapeController.RotateClockWise(true);
+                }
                 break;
             case "TurnLeft":
-                _shapeController.RotateClockWise(false);
+                if (_shapeController.transform.position.x > go.transform.position.x)
+                {
+                    if (!inverse) _shapeController.RotateClockWise(true);
+                    else _shapeController.RotateClockWise(false);
+                }
+                else
+                {
+                    if (!inverse) _shapeController.RotateClockWise(false);
+                    else _shapeController.RotateClockWise(true);
+                }
                 break;
             case "Fall":
                 _shapeController.InstantFall();

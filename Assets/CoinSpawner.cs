@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CoinSpawner : MonoBehaviour
 {
-
     [SerializeField] GameObject prefabCoin;
     [SerializeField] float DestroyTime = 5f;
 
