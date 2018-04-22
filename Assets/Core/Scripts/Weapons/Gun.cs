@@ -2,6 +2,7 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(LineRenderer))]
@@ -39,7 +40,8 @@ public class Gun : MonoBehaviour {
 	public bool randomBulletRotation;
 	public float maxBulletRotation;
 	public int nbBulletsPerShot = 3;
-	public LineRenderer laserLine;
+	public Color laserColor1;
+	public Color laserColor2;
 
     [Space(10)]
     [SerializeField] bool _useRaycast = false;
@@ -52,6 +54,7 @@ public class Gun : MonoBehaviour {
     GameObject bulletsHolder;
 	AudioSource audioSource;
 	CameraShake cameraShake;
+	LineRenderer laserLine;
 
 	void Start() {
 		bulletsHolder = GameObject.Find("BulletsHolder");
@@ -176,10 +179,9 @@ public class Gun : MonoBehaviour {
 		laserLine.enabled = true;
 		laserLine.SetPosition(0, transform.position);
 		laserLine.SetPosition(1, hit.point + hit.normal);
-	}
 
-	void DisableLaser() {
-		laserLine.enabled = false;
+		Color2 startColor = new Color2(laserColor1, laserColor2);
+		laserLine.DOColor(startColor, new Color2(), 1);
 	}
 
 }
