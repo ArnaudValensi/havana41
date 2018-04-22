@@ -22,7 +22,11 @@ public class BonusMalusManager : MonoBehaviour {
             mustUseMalusBonus = currentCreatedShape % _shapeCreationInterval == 0;
             ShapeMovementController newShape = Managers.Game.currentShape.movementController;
 
-
+            if (mustUseMalusBonus)
+            {
+                var selected = newShape.GetComponentsInChildren<BonusMalusSlot>().Random();
+                GameObject.Instantiate(AllBonusMalus.Random(), selected.transform, false);
+            }
 
         });
     }

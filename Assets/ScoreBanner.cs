@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -28,12 +29,20 @@ public class ScoreBanner : MonoBehaviour {
             yield return new WaitForSeconds(_routineInterval);
 
             _internalScore += (int)_rewardPerSpeed.Evaluate(HavanaManager.Instance.GlobalTransitionInterval);
-            _text.text = _internalScore.ToString();
+            UpdateUI();
         }
 
     }
 
+    void UpdateUI()
+    {
+            _text.text = _internalScore.ToString();
 
+    }
 
-
+    internal void AddScore(int v)
+    {
+        _internalScore += v;
+        UpdateUI();
+    }
 }

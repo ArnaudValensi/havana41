@@ -5,11 +5,16 @@ using UnityEngine;
 public class BlockCollider : MonoBehaviour {
 
     ShapeMovementController _shapeController=null;
+    BonusMalus _bonusMalus;
 
     public void Touch(GameObject go, Gun.BulletType type= Gun.BulletType.Null, bool inverse=false)
     {
+        
         string order = type == Gun.BulletType.Null ? go.tag : System.Enum.GetName(typeof(Gun.BulletType), type);
         _shapeController = _shapeController ?? GetComponentInParent<ShapeMovementController>();
+        _bonusMalus = _bonusMalus ?? GetComponentInChildren<BonusMalus>();
+
+        _bonusMalus?.Fire();
 
         switch (order)
         {

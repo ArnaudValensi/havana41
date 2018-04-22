@@ -22,6 +22,13 @@ public static class Helper
             return @this.Evaluate(time);
         }
     }
+
+    public static T Random<T>(this IEnumerable<T> @this)
+    {
+        var l = @this.ToList();
+        return l[UnityEngine.Random.Range(0, l.Count)];
+    }
+
 }
 
 public class HavanaManager : MonoBehaviour {
