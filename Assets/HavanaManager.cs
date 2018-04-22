@@ -29,6 +29,15 @@ public static class Helper
         return l[UnityEngine.Random.Range(0, l.Count)];
     }
 
+    public static IEnumerable<AnimationClip> clips(this Animation @this)
+    {
+        var e = @this.GetEnumerator();
+        while(e.MoveNext())
+        {
+            yield return e.Current as AnimationClip;
+        }
+    }
+
 }
 
 public class HavanaManager : MonoBehaviour {
