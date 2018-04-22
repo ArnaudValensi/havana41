@@ -9,7 +9,8 @@ public enum EventNotification
     Null,
     MainMenuStart,
     GameStart,
-    GameOver
+    GameOver,
+    ShapeCreation
 }
 
 
@@ -24,7 +25,6 @@ public class NotificationManager : MonoBehaviour {
     }
 
     #endregion
-
 
     static public NotificationManager Instance;
     static Dictionary<EventNotification, List<EventReceiver>> _internalList;

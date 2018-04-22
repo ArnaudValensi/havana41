@@ -26,5 +26,7 @@ public class SpawnManager : MonoBehaviour {
 		GameObject temp =Instantiate(shapeTypes[i], _startPositionPossibility[j].position, Quaternion.identity, Managers.Game.blockHolder) ;
         Managers.Game.currentShape = temp.GetComponent<TetrisShape>();
         Managers.Input.isActive = true;
+
+        NotificationManager.Instance.FireNotification(EventNotification.ShapeCreation, Managers.Game.currentShape);
     }
 }
