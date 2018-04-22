@@ -273,7 +273,7 @@ MonoBehaviour:
   fireShakeDuration: 0.25
   knockBackOnFire: 1
   knockbackDistance: 0.1
-  gunExplosion: {fileID: 1706119891043754}
+  gunExplosion: {fileID: 0}
   randomBulletRotation: 1
   maxBulletRotation: 10
   nbBulletsPerShot: 1
