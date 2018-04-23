@@ -7894,7 +7894,6 @@ GameObject:
   - component: {fileID: 558986608}
   - component: {fileID: 558986607}
   - component: {fileID: 558986606}
-  - component: {fileID: 558986605}
   m_Layer: 5
   m_Name: Button Quit
   m_TagString: Untagged
@@ -7922,18 +7921,6 @@ RectTransform:
   m_AnchoredPosition: {x: 50.00006, y: -128.3}
   m_SizeDelta: {x: 205.9, y: 51.600006}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &558986605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114378576125220876, guid: 5e20596f233a54cb7ae2621ab9a17145,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 558986603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed2bde66cfd95413daee64889c239ed9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &558986606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10923,7 +10910,6 @@ GameObject:
   - component: {fileID: 747185436}
   - component: {fileID: 747185435}
   - component: {fileID: 747185434}
-  - component: {fileID: 747185433}
   m_Layer: 5
   m_Name: Button Quit
   m_TagString: Untagged
@@ -10951,18 +10937,6 @@ RectTransform:
   m_AnchoredPosition: {x: 206, y: -71.600006}
   m_SizeDelta: {x: 205.9, y: 51.600006}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &747185433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114378576125220876, guid: 5e20596f233a54cb7ae2621ab9a17145,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 747185431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed2bde66cfd95413daee64889c239ed9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &747185434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12271,7 +12245,6 @@ GameObject:
   - component: {fileID: 848834032}
   - component: {fileID: 848834031}
   - component: {fileID: 848834030}
-  - component: {fileID: 848834029}
   m_Layer: 5
   m_Name: Button Quit
   m_TagString: Untagged
@@ -12299,18 +12272,6 @@ RectTransform:
   m_AnchoredPosition: {x: 50.00006, y: -123.61809}
   m_SizeDelta: {x: 205.9, y: 51.600006}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &848834029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114378576125220876, guid: 5e20596f233a54cb7ae2621ab9a17145,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 848834027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed2bde66cfd95413daee64889c239ed9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &848834030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12351,12 +12312,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: ed2bde66cfd95413daee64889c239ed9, type: 3}
-        m_MethodName: 
+      - m_Target: {fileID: 1643202871}
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -23272,7 +23233,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 100 000
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 11697566696ce074f8111486a711210a, type: 2}
   m_sharedMaterial: {fileID: 21531099574496564, guid: 11697566696ce074f8111486a711210a,
@@ -24219,6 +24180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  gameOverScore: {fileID: 1909178244}
+  pauseScore: {fileID: 1556321499}
 --- !u!1 &1643930086
 GameObject:
   m_ObjectHideFlags: 0
@@ -28873,7 +28836,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 100 000
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 11697566696ce074f8111486a711210a, type: 2}
   m_sharedMaterial: {fileID: 21531099574496564, guid: 11697566696ce074f8111486a711210a,

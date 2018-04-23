@@ -6,43 +6,45 @@ using UnityEngine;
 
 public class ScoreBanner : MonoBehaviour {
 
-    public static ScoreBanner Instance;
+	public static ScoreBanner Instance;
 
-    [SerializeField] TextMeshProUGUI _text;
-    [SerializeField] AnimationCurve _rewardPerSpeed;
-    [SerializeField] float _routineInterval = 1f;
+	[SerializeField] TextMeshProUGUI _text;
+	[SerializeField] AnimationCurve _rewardPerSpeed;
+	[SerializeField] float _routineInterval = 1f;
 
-    int _internalScore = 0;
+	ArenaManager arenaManager;
 
-    private void Awake()
-    {
-        Instance = this;
-        _internalScore = 0;
-        StartCoroutine(ScoreUpgrade());
-    }
+	int _internalScore = 0;
 
-    IEnumerator ScoreUpgrade()
-    {
+	private void Awake() {
+		Instance = this;
+		_internalScore = 0;
+		StartCoroutine(ScoreUpgrade());
+	}
 
-        while(true)
-        {
-            yield return new WaitForSeconds(_routineInterval);
+	void Start() {
+		arenaManager = GameObject.Find("/Arena").GetComponent<ArenaManager>();
+	}
 
-            _internalScore += (int)_rewardPerSpeed.Evaluate(HavanaManager.Instance.GlobalTransitionInterval);
-            UpdateUI();
-        }
+	IEnumerator ScoreUpgrade() {
 
-    }
+		while (true) {
+			yield return new WaitForSeconds(_routineInterval);
 
-    void UpdateUI()
-    {
-            _text.text = _internalScore.ToString();
+			_internalScore += (int)_rewardPerSpeed.Evaluate(HavanaManager.Instance.GlobalTransitionInterval);
+			arenaManager.SetScore(_internalScore);
+			UpdateUI();
+		}
 
-    }
+	}
 
-    internal void AddScore(int v)
-    {
-        _internalScore += v;
-        UpdateUI();
-    }
+	void UpdateUI() {
+		_text.text = _internalScore.ToString();
+
+	}
+
+	internal void AddScore(int v) {
+		_internalScore += v;
+		UpdateUI();
+	}
 }
