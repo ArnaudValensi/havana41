@@ -15,7 +15,7 @@ using System.Collections;
 public class ContinueButton : MonoBehaviour {
 
     [SerializeField] OnStartKeepArena keeper;
-    static bool tuto = true;
+    static bool tuto = false;
 
     public void OnClickContinueButton()
     {
