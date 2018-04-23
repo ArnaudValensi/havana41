@@ -64,7 +64,7 @@ public class PlayerMotor : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKeyDown(KeyCode.S) && isGroundedOnPlatform) {
+		if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && isGroundedOnPlatform) {
 			StartCoroutine(GoThroughPlatform());
 		}
 
