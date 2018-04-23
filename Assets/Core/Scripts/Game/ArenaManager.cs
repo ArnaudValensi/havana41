@@ -46,6 +46,7 @@ public class ArenaManager : MonoBehaviour {
 		Debug.Log("PauseToGameOver");
 		UnPause();
 		animator.SetInteger("InternalState", 2);
+		Managers.Game.SetState(typeof(GameOverState));
 	}
 
 }
