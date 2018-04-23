@@ -18283,11 +18283,6 @@ Prefab:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 114942078149905770, guid: 5f9c64bec8ff14664be7b2b7146135af,
-        type: 2}
-      propertyPath: stompSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 5a6dbeade8063472295ec1d263fb62e3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f9c64bec8ff14664be7b2b7146135af, type: 2}
   m_IsPrefabParent: 0

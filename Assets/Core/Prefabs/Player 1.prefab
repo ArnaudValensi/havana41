@@ -1026,7 +1026,7 @@ MonoBehaviour:
   platformLayer:
     serializedVersion: 2
     m_Bits: 2048
-  stompSound: {fileID: 8300000, guid: 792f86c16893c4e4ea54613089483a52, type: 3}
+  stompSound: {fileID: 8300000, guid: 5a6dbeade8063472295ec1d263fb62e3, type: 3}
   grounded: 0
   velocity: {x: 0, y: -1.1562002, z: 0}
   flipX: 0
@@ -35888,7 +35888,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 88ce450b14e0943e8aa74ecf683b2e9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
