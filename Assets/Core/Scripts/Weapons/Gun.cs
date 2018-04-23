@@ -64,19 +64,26 @@ public class Gun : MonoBehaviour {
 
 	public void Update() {
 
-		if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.K)) {
+		if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.X)) {
 			for (int i = 0; i < nbBulletsPerShot; i++) {
 				Fire(BulletType.Move);
 			}
 		}
 
-		if (Input.GetKeyDown(KeyCode.L)) {
-			for (int i = 0; i < nbBulletsPerShot; i++) {
-				if (transform.parent.right == Vector3.left) {
-					Fire(BulletType.TurnRight);
-				} else {
-					Fire(BulletType.TurnLeft);
-				}
+		if (Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Mouse1))
+		{
+			for (int i = 0; i < nbBulletsPerShot; i++)
+			{
+				Fire(BulletType.TurnRight);
+			}
+			onShootRotate.Invoke();
+		}
+
+		if (Input.GetKeyDown(KeyCode.C))
+		{
+			for (int i = 0; i < nbBulletsPerShot; i++)
+			{
+				Fire(BulletType.TurnLeft);
 			}
 			onShootRotate.Invoke();
 		}
@@ -95,7 +102,7 @@ public class Gun : MonoBehaviour {
 
 		if (!_useRaycast) {
 			var bulletPrefab = GetBulletPrefab(bulletType) ?? this.bulletPrefab;
-            
+
 			// Create bullet
 			GameObject bullet = Instantiate(
 				                       bulletPrefab,
