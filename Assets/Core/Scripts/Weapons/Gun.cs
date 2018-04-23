@@ -64,13 +64,13 @@ public class Gun : MonoBehaviour {
 
 	public void Update() {
 
-		if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X)) {
+		if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.X)) {
 			for (int i = 0; i < nbBulletsPerShot; i++) {
 				Fire(BulletType.Move);
 			}
 		}
 
-		if (Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.H))
+		if (Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.Mouse1))
         {
             for (int i = 0; i < nbBulletsPerShot; i++)
             {
