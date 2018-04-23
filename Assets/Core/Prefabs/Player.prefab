@@ -461,7 +461,7 @@ MonoBehaviour:
   gravity: 60
   fallCoef: 2
   jumpForce: 28
-  stompForce: 10
+  stompBounceForce: 10
   stompFallCoef: 1.2
   platformLayer:
     serializedVersion: 2

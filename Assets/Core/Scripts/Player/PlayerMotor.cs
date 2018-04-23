@@ -10,7 +10,7 @@ public class PlayerMotor : MonoBehaviour {
 	public float gravity = 30f;
 	public float fallCoef = 2f;
 	public float jumpForce = 14f;
-	public float stompForce = 2f;
+	public float stompBounceForce = 10f;
 	public float stompFallCoef = 2f;
 	public LayerMask platformLayer;
 	public AudioClip stompSound;
@@ -59,7 +59,7 @@ public class PlayerMotor : MonoBehaviour {
 
 			if (isStomping) {
 				isStomping = false;
-				velocity.y *= -stompForce;
+				velocity.y *= -stompBounceForce;
 				DoStomp();
 			}
 		} else {
@@ -81,11 +81,13 @@ public class PlayerMotor : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && isGroundedOnPlatform) {
-			StartCoroutine(GoThroughPlatform());
-		}
+			if (isGroundedOnPlatform) {
+				StartCoroutine(GoThroughPlatform());
+			}
 
-		if (Input.GetKeyDown(KeyCode.S) && !controller.isGrounded) {
-			isStomping = true;
+			if (!controller.isGrounded) {
+				isStomping = true;
+			}
 		}
 
 		controller.move(velocity * Time.deltaTime);
