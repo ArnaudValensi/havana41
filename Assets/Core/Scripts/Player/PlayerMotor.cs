@@ -10,7 +10,10 @@ public class PlayerMotor : MonoBehaviour {
 	public float gravity = 30f;
 	public float fallCoef = 2f;
 	public float jumpForce = 14f;
+	public float stompForce = 2f;
+	public float stompFallCoef = 2f;
 	public LayerMask platformLayer;
+	public AudioClip stompSound;
 
 	[ReadOnly] public bool grounded;
 	[ReadOnly] public Vector3 velocity = Vector3.zero;
@@ -24,10 +27,12 @@ public class PlayerMotor : MonoBehaviour {
 	CharacterController2D controller;
 	GameObject gun;
 	SpriteAnimator animator;
+	AudioSource audioSource;
 
 	void Start () {
 		controller = GetComponent<CharacterController2D>();
 		animator = GetComponent<SpriteAnimator>();
+		audioSource = GetComponent<AudioSource>();
 		gun = transform.Find("Gun").gameObject;
 
 		controller.onControllerCollidedEvent += (RaycastHit2D ray) => {
@@ -51,19 +56,23 @@ public class PlayerMotor : MonoBehaviour {
 				velocity.y = jumpForce;
 				onJump.Invoke();
 			}
+
+			if (isStomping) {
+				isStomping = false;
+				velocity.y *= -stompForce;
+				DoStomp();
+			}
 		} else {
 			grounded = false;
 			isGroundedOnPlatform = false;
 
-			if (isStomping) {
-				isStomping = false;
-
-				Debug.Log("Boom");
-			}
-
 			// If it is falling
 			if (velocity.y < 0) {
 				velocity.y -= gravity * Time.deltaTime * fallCoef;
+
+				if (isStomping) {
+					velocity.y *= stompFallCoef;
+				}
 			} else if (Input.GetButtonUp("Jump")) {
 				velocity.y = 0f;
 			} else {
@@ -76,7 +85,6 @@ public class PlayerMotor : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown(KeyCode.S) && !controller.isGrounded) {
-			Debug.Log("Stomp");
 			isStomping = true;
 		}
 
@@ -124,11 +132,17 @@ public class PlayerMotor : MonoBehaviour {
 	}
 
 	IEnumerator GoThroughPlatform() {
-		for (int i = 0; i < 7; i++) {
+		for (int i = 0; i < 8; i++) {
 			controller.ignoreOneWayPlatformsThisFrame = true;
 			yield return null;
 		}
 
 		yield return null;
+	}
+
+	void DoStomp() {
+		audioSource.clip = stompSound;
+		audioSource.Play();
+		Managers.Game.currentShape.GetComponent<ShapeMovementController>().InstantFall();
 	}
 }

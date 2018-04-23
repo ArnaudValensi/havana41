@@ -143,8 +143,6 @@ public class Gun : MonoBehaviour {
 				}
 			}
 
-
-//			Vector2 destination = (transform.right == Vector3.right) ? result.point - result.normal : result.point - result.normal;
 			laser1.Shoot(color1, color2, transform.position, result.point - result.normal);
 		}
 
