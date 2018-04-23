@@ -64,26 +64,21 @@ public class Gun : MonoBehaviour {
 
 	public void Update() {
 
-		if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Q)) {
+		if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.K)) {
 			for (int i = 0; i < nbBulletsPerShot; i++) {
 				Fire(BulletType.Move);
 			}
 		}
 
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             for (int i = 0; i < nbBulletsPerShot; i++)
             {
-                Fire(BulletType.TurnRight);
-            }
-			onShootRotate.Invoke();
-        }
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            for (int i = 0; i < nbBulletsPerShot; i++)
-            {
-                Fire(BulletType.TurnLeft);
+				if (transform.parent.right == Vector3.left) {
+					Fire(BulletType.TurnRight);
+				} else {
+					Fire(BulletType.TurnLeft);
+				}
             }
 			onShootRotate.Invoke();
         }
@@ -95,11 +90,6 @@ public class Gun : MonoBehaviour {
                 Fire(BulletType.Fall);
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.R)) {
-			nbBulletsPerShot = (nbBulletsPerShot == 1) ? 3 : 1;
-			onShootNormal.Invoke();
-		}
 	}
 
 
