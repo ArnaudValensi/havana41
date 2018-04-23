@@ -52,6 +52,10 @@ public class ArenaManager : MonoBehaviour {
 		Managers.Game.SetState(typeof(GameOverState));
 	}
 
+	public void GoToTuto() {
+		animator.SetInteger("InternalState", 101);
+	}
+
 	public void QuitGame() {
 		// In most cases termination of application under iOS should be left at the user discretion.
 		// https://developer.apple.com/library/content/qa/qa1561/_index.html
