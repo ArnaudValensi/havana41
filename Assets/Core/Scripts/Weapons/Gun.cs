@@ -63,6 +63,9 @@ public class Gun : MonoBehaviour {
 	}
 
 	public void Update() {
+		if (Time.timeScale == 0f) {
+			return;
+		}
 
 		if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.X)) {
 			for (int i = 0; i < nbBulletsPerShot; i++) {
