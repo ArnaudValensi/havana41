@@ -23,9 +23,9 @@ public class LoopFire : MonoBehaviour {
 		Debug.Log("Refire: " + transform.right);
 
 		if (direction == Vector3.left) {
-			laser.Shoot(color1, color2, fromPos, fromPos - offset);
+			laser.Shoot(color1, color2, fromPos, fromPos - offset +  Vector3.left);
 		} else {
-			laser.Shoot(color1, color2, fromPos, fromPos + offset);
+			laser.Shoot(color1, color2, fromPos, fromPos + offset +  Vector3.right);
 		}
     }
 }

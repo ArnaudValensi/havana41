@@ -6,25 +6,25 @@ using UnityEngine.Events;
 [RequireComponent(typeof(AudioSource))]
 public class Gun : MonoBehaviour {
 
-    #region InternalType
-    public enum BulletType
-    {
-        Null,
-        Move,
-        TurnRight,
-        TurnLeft,
-        Fall
-    }
+	#region InternalType
 
-    [System.Serializable]
-    class BulletTypePrefabAsso
-    {
-        public BulletType type;
-        public GameObject prefab;
-    }
-    #endregion
+	public enum BulletType {
+		Null,
+		Move,
+		TurnRight,
+		TurnLeft,
+		Fall
+	}
 
-    public bool flipX;
+	[System.Serializable]
+	class BulletTypePrefabAsso {
+		public BulletType type;
+		public GameObject prefab;
+	}
+
+	#endregion
+
+	public bool flipX;
 	public float bulletFrequency = 2f;
 	public GameObject bulletPrefab;
 	public AudioClip[] audioClips;
@@ -44,15 +44,15 @@ public class Gun : MonoBehaviour {
 	public Color laser2Color1;
 	public Color laser2Color2;
 
-    [Space(10)]
-    [SerializeField] bool _useRaycast = false;
+	[Space(10)]
+	[SerializeField] bool _useRaycast = false;
 
-    [Space(10)]
-    [SerializeField] List<BulletTypePrefabAsso> BulletConfiguration;
+	[Space(10)]
+	[SerializeField] List<BulletTypePrefabAsso> BulletConfiguration;
 	[SerializeField] UnityEvent onShootNormal;
 	[SerializeField] UnityEvent onShootRotate;
 
-    GameObject bulletsHolder;
+	GameObject bulletsHolder;
 	AudioSource audioSource;
 	CameraShake cameraShake;
 
@@ -70,53 +70,46 @@ public class Gun : MonoBehaviour {
 			}
 		}
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            for (int i = 0; i < nbBulletsPerShot; i++)
-            {
+		if (Input.GetKeyDown(KeyCode.L)) {
+			for (int i = 0; i < nbBulletsPerShot; i++) {
 				if (transform.parent.right == Vector3.left) {
 					Fire(BulletType.TurnRight);
 				} else {
 					Fire(BulletType.TurnLeft);
 				}
-            }
+			}
 			onShootRotate.Invoke();
-        }
+		}
 
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            for (int i = 0; i < nbBulletsPerShot; i++)
-            {
-                Fire(BulletType.Fall);
-            }
-        }
+		if (Input.GetKeyDown(KeyCode.V)) {
+			for (int i = 0; i < nbBulletsPerShot; i++) {
+				Fire(BulletType.Fall);
+			}
+		}
 	}
 
 
-    GameObject GetBulletPrefab(BulletType bulletType) => BulletConfiguration.FirstOrDefault( i => i.type== bulletType)?.prefab ?? null;
+	GameObject GetBulletPrefab(BulletType bulletType) => BulletConfiguration.FirstOrDefault( i => i.type== bulletType)?.prefab ?? null;
 
-    void Fire(BulletType bulletType= BulletType.Move) {
+	void Fire(BulletType bulletType = BulletType.Move) {
 
-        if(!_useRaycast)
-        {
-            var bulletPrefab = GetBulletPrefab(bulletType) ?? this.bulletPrefab;
+		if (!_useRaycast) {
+			var bulletPrefab = GetBulletPrefab(bulletType) ?? this.bulletPrefab;
             
-		    // Create bullet
-		    GameObject bullet = Instantiate(
-		    	bulletPrefab,
-		    	transform.position,
-		    	transform.rotation,
-		    	bulletsHolder.transform
-		    );
+			// Create bullet
+			GameObject bullet = Instantiate(
+				                       bulletPrefab,
+				                       transform.position,
+				                       transform.rotation,
+				                       bulletsHolder.transform
+			                       );
 
-		    if (randomBulletRotation) {
-		    	float halfAngle = maxBulletRotation - maxBulletRotation / 2;
-		    	bullet.transform.Rotate(0f, 0f, Random.Range(-halfAngle, halfAngle));
-		    }
-        }
-        else
-        {
-            RaycastHit2D result;
+			if (randomBulletRotation) {
+				float halfAngle = maxBulletRotation - maxBulletRotation / 2;
+				bullet.transform.Rotate(0f, 0f, Random.Range(-halfAngle, halfAngle));
+			}
+		} else {
+			RaycastHit2D result;
 
 			Color color1;
 			Color color2;
@@ -129,26 +122,24 @@ public class Gun : MonoBehaviour {
 				color2 = laser2Color2;
 			}
 
-            Debug.DrawRay(transform.position, transform.right * 1000 + Vector3.up * 0.01f, Color.blue, 2f);
+			Debug.DrawRay(transform.position, transform.right * 1000 + Vector3.up * 0.01f, Color.blue, 2f);
 
-            int layer = 1 << 9;
-            layer += 1 << 13;
-            if (result = Physics2D.Raycast(transform.position, transform.right , 1000, layer))
-            {
-                Debug.Log($"touch {result.transform}");
-                System.Action<RaycastHit2D, bool> TouchAction = (r, inverse) => r.transform.GetComponent<BlockCollider>()?.Touch(gameObject, bulletType, inverse);
-                if (result.transform.gameObject.layer == 13) // Warp
-                {
+			int layer = 1 << 9;
+			layer += 1 << 13;
+			if (result = Physics2D.Raycast(transform.position, transform.right, 1000, layer)) {
+				Debug.Log($"touch {result.transform}");
+				System.Action<RaycastHit2D, bool> TouchAction = (r, inverse) => r.transform.GetComponent<BlockCollider>()?.Touch(gameObject, bulletType, inverse);
+				if (result.transform.gameObject.layer == 13) { // Warp
 					result.transform.GetComponent<LoopFire>().ReFire(transform.position, transform.right, laser2, color1, color2, TouchAction);
-                }
-                else
-                {
-                    TouchAction(result,false);
-                }
-            }
+				} else {
+					TouchAction(result, false);
+				}
+			}
 
-			laser1.Shoot(color1, color2, transform.position, result.point + result.normal);
-        }
+
+//			Vector2 destination = (transform.right == Vector3.right) ? result.point - result.normal : result.point - result.normal;
+			laser1.Shoot(color1, color2, transform.position, result.point - result.normal);
+		}
 
 		// Gun sound
 		PlayerSound();

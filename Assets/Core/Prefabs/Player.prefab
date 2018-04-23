@@ -343,8 +343,8 @@ MonoBehaviour:
   laser2: {fileID: 114721395311864208}
   laserColor1: {r: 0.85882354, g: 0.2901961, b: 0.2901961, a: 1}
   laserColor2: {r: 1, g: 0.9764706, b: 0.14117648, a: 1}
-  laser2Color1: {r: 0.034482475, g: 0, b: 1, a: 0}
-  laser2Color2: {r: 1, g: 1, b: 1, a: 0}
+  laser2Color1: {r: 0.034482475, g: 0, b: 1, a: 1}
+  laser2Color2: {r: 1, g: 1, b: 1, a: 1}
   _useRaycast: 1
   BulletConfiguration:
   - type: 1
