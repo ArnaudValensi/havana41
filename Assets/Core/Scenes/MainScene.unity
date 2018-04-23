@@ -6693,6 +6693,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010964644938, guid: ff19987311d5db94d985e3178e9d4664,
     type: 2}
   m_PrefabInternal: {fileID: 459945110}
+--- !u!198 &471163186 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198025290171397924, guid: d7ef441adab9a479197e2d0f062fd957,
+    type: 2}
+  m_PrefabInternal: {fileID: 998408390}
 --- !u!1001 &471241964
 Prefab:
   m_ObjectHideFlags: 0
@@ -13092,6 +13097,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114603821457551324, guid: d7ef441adab9a479197e2d0f062fd957,
         type: 2}
+      propertyPath: onStompEnd.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114603821457551324, guid: d7ef441adab9a479197e2d0f062fd957,
+        type: 2}
       propertyPath: onPlayerLand.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -13164,6 +13174,31 @@ Prefab:
     - target: {fileID: 114603821457551324, guid: d7ef441adab9a479197e2d0f062fd957,
         type: 2}
       propertyPath: onPlayerLand.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114603821457551324, guid: d7ef441adab9a479197e2d0f062fd957,
+        type: 2}
+      propertyPath: onStompEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114603821457551324, guid: d7ef441adab9a479197e2d0f062fd957,
+        type: 2}
+      propertyPath: onStompEnd.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114603821457551324, guid: d7ef441adab9a479197e2d0f062fd957,
+        type: 2}
+      propertyPath: onStompEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 471163186}
+    - target: {fileID: 114603821457551324, guid: d7ef441adab9a479197e2d0f062fd957,
+        type: 2}
+      propertyPath: onStompEnd.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 114603821457551324, guid: d7ef441adab9a479197e2d0f062fd957,
+        type: 2}
+      propertyPath: onStompEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []

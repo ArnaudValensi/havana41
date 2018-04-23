@@ -23,6 +23,7 @@ public class PlayerMotor : MonoBehaviour {
 
 	[SerializeField] UnityEvent onJump;
 	[SerializeField] UnityEvent onPlayerLand;
+	[SerializeField] UnityEvent onStompEnd;
 
 	CharacterController2D controller;
 	GameObject gun;
@@ -146,5 +147,6 @@ public class PlayerMotor : MonoBehaviour {
 		audioSource.clip = stompSound;
 		audioSource.Play();
 		Managers.Game.currentShape.GetComponent<ShapeMovementController>().InstantFall();
+		onStompEnd.Invoke();
 	}
 }
