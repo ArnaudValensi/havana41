@@ -20,7 +20,7 @@ public class LoopFire : MonoBehaviour {
             callback(result, true);
         }
 
-		Debug.Log("Refire: " + transform.right);
+		//Debug.Log("Refire: " + transform.right);
 
 		if (direction == Vector3.left) {
 			laser.Shoot(color1, color2, fromPos, fromPos - offset +  Vector3.left);

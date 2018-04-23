@@ -27,7 +27,7 @@ public class ColorManager : MonoBehaviour {
                 temp = themePack_Gram[rand];
                 break;
             default:
-				temp = Color.black;
+				temp = Color.green;
 				break;
 		}
 

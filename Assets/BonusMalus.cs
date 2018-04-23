@@ -86,7 +86,7 @@ public class BonusMalus : MonoBehaviour {
         while(true)
         {
             HavanaManager.Instance.SpeedOffset = _speedOffsetCurve.Evaluate(startTime, true);
-            Debug.Log(HavanaManager.Instance.SpeedOffset);
+            //Debug.Log(HavanaManager.Instance.SpeedOffset);
             if (startTime > _speedOffsetCurve.keys.Last().time)
             {
                 onStopEffect.Invoke();

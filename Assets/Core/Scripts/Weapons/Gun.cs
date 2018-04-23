@@ -82,7 +82,7 @@ public class Gun : MonoBehaviour {
 			onShootRotate.Invoke();
 		}
 
-		if (Input.GetKeyDown(KeyCode.C))
+		if (Input.GetKeyDown(KeyCode.M))
 		{
 			for (int i = 0; i < nbBulletsPerShot; i++)
 			{
@@ -137,7 +137,7 @@ public class Gun : MonoBehaviour {
 			int layer = 1 << 9;
 			layer += 1 << 13;
 			if (result = Physics2D.Raycast(transform.position, transform.right, 1000, layer)) {
-				Debug.Log($"touch {result.transform}");
+				//Debug.Log($"touch {result.transform}");
 				System.Action<RaycastHit2D, bool> TouchAction = (r, inverse) => r.transform.GetComponent<BlockCollider>()?.Touch(gameObject, bulletType, inverse);
 				if (result.transform.gameObject.layer == 13) { // Warp
 					result.transform.GetComponent<LoopFire>().ReFire(transform.position, transform.right, laser2, color1, color2, TouchAction);

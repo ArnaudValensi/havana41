@@ -60,6 +60,7 @@ public class ShapeMovementController : MonoBehaviour {
         }
         else // It's not valid. revert rotation operation.
         {
+            Debug.Log("Not Valid");
             transform.RotateAround(rotationPivot.position, Vector3.forward, -rotationDegree);
         }
     }
