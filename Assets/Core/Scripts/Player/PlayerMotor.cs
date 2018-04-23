@@ -16,6 +16,7 @@ public class PlayerMotor : MonoBehaviour {
 	[ReadOnly] public Vector3 velocity = Vector3.zero;
 	[ReadOnly] public bool flipX;
 	[ReadOnly] public bool isGroundedOnPlatform;
+	[ReadOnly] public bool isStomping;
 
 	[SerializeField] UnityEvent onJump;
 	[SerializeField] UnityEvent onPlayerLand;
@@ -54,6 +55,12 @@ public class PlayerMotor : MonoBehaviour {
 			grounded = false;
 			isGroundedOnPlatform = false;
 
+			if (isStomping) {
+				isStomping = false;
+
+				Debug.Log("Boom");
+			}
+
 			// If it is falling
 			if (velocity.y < 0) {
 				velocity.y -= gravity * Time.deltaTime * fallCoef;
@@ -66,6 +73,11 @@ public class PlayerMotor : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.S) && isGroundedOnPlatform) {
 			StartCoroutine(GoThroughPlatform());
+		}
+
+		if (Input.GetKeyDown(KeyCode.S) && !controller.isGrounded) {
+			Debug.Log("Stomp");
+			isStomping = true;
 		}
 
 		controller.move(velocity * Time.deltaTime);
