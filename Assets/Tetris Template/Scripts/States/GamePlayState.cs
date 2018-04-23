@@ -15,12 +15,12 @@ public class GamePlayState : _StatesBase {
         gamePlayDuration = Time.time;
 		Managers.Spawner.Spawn();
 		Managers.Game.isGameActive = true;
-        Debug.Log ("<color=green>Gameplay State</color> OnActive");	
+        //Debug.Log ("<color=green>Gameplay State</color> OnActive");	
 	}
 	public override void OnDeactivate ()
 	{
         Managers.Game.stats.timeSpent += Time.time - gamePlayDuration;
-		Debug.Log ("<color=red>Gameplay State</color> OnDeactivate");
+		//Debug.Log ("<color=red>Gameplay State</color> OnDeactivate");
 	}
 
 	public override void OnUpdate ()
