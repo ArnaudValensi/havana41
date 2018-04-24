@@ -35,12 +35,8 @@ public class ScoreManager : MonoBehaviour {
 
 
 	public void OnScore(int scoreIncreaseAmount)
-	{	
-		currentScore += scoreIncreaseAmount;
-        CheckHighScore();
-        Managers.UI.inGameUI.UpdateScoreUI();
-        Managers.Game.stats.totalScore += scoreIncreaseAmount;
-		Debug.Log("Here");
+	{
+        return;
     }
 
     public void CheckHighScore()
