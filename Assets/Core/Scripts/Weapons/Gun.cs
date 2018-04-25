@@ -91,7 +91,7 @@ public class Gun : MonoBehaviour {
 			onShootRotate.Invoke();
 		}
 
-		if (Input.GetKeyDown(KeyCode.V)) {
+		if (Input.GetKeyDown(KeyCode.B)) {
 			for (int i = 0; i < nbBulletsPerShot; i++) {
 				Fire(BulletType.Fall);
 			}
