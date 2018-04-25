@@ -115,15 +115,7 @@ public class PlayerMotor : MonoBehaviour {
 	void SetGunPosition() {
 		float upDown = Input.GetAxis("Vertical");
 
-		Vector3 gunRight;
-
-		if (upDown > 0) {
-			gunRight = transform.up;
-		} else if (upDown < 0) {
-			gunRight = -transform.up;
-		} else {
-			gunRight = transform.right;
-		}
+		Vector3 gunRight = transform.right;
 
 		// Velocity x is representative of the input on horizontal axis.
 		if (velocity.x != 0) {
