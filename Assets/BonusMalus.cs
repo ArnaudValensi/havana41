@@ -12,7 +12,8 @@ public class BonusMalus : MonoBehaviour {
         Null,
         AutoLiner,
         ScoreBumper,
-        SpeedUp
+        SpeedUp,
+        Bomb
     }
     #endregion
 
@@ -26,6 +27,13 @@ public class BonusMalus : MonoBehaviour {
     [Header("Lineargrid conf")]
     [SerializeField] int _elementToSpawn=3;
     [SerializeField] GameObject _singleBlockprefab;
+
+    [SerializeField] int bumperScoreValue = 0;
+
+
+    [Header("BombConf")]
+    [SerializeField] Animation _animation;
+    [SerializeField] AnimationClip _readyToFire;
 
     bool CanFire = true;
     
@@ -46,12 +54,51 @@ public class BonusMalus : MonoBehaviour {
                 CanFire = false;
                 StartCoroutine(SpeedUpRoutine());
                 break;
+            case BonusMalusType.Bomb:
+                CanFire = false;
+                StartCoroutine(BombExplosion());
+                break;
             case BonusMalusType.Null:
             default:
                 break;
         }
     }
     
+    IEnumerator BombExplosion()
+    {
+        Debug.Log(transform.parent.position);
+
+        if(_animation != null && _readyToFire != null && _animation[_readyToFire.name] != null)
+            _animation.Play(_readyToFire.name);
+
+        var shape= GetComponentInParent<ShapeMovementController>();
+        var next = false;
+        shape._onStopFalling.AddListener(() => { next = true; });
+        yield return new WaitWhile(() => !next);
+
+
+        DestroyElement(transform.parent.position.x-1, transform.parent.position.y-1);
+        DestroyElement(transform.parent.position.x-1, transform.parent.position.y);
+        DestroyElement(transform.parent.position.x-1, transform.parent.position.y+1);
+
+        DestroyElement(transform.parent.position.x+1, transform.parent.position.y-1);
+        DestroyElement(transform.parent.position.x+1, transform.parent.position.y);
+        DestroyElement(transform.parent.position.x+1, transform.parent.position.y+1);
+
+        DestroyElement(transform.parent.position.x, transform.parent.position.y-1);
+        DestroyElement(transform.parent.position.x, transform.parent.position.y+1);
+
+        DestroyElement(transform.parent.position.x, transform.parent.position.y);
+    }
+    void DestroyElement(float x, float y)
+    {
+        try
+        {
+            Destroy(Managers.Grid.gameGridcol[(int)x].row[(int)y].gameObject);
+            Managers.Grid.gameGridcol[(int)x].row[(int)y] = null;
+        }
+        catch { }
+    }
 
     IEnumerator AutoLiner()
     {
@@ -69,18 +116,25 @@ public class BonusMalus : MonoBehaviour {
             Managers.Spawner.Spawn(_singleBlockprefab, el.colIdx, el.rowIdx);
             if (++spawned >= _elementToSpawn) break;
         }
+
+        gameObject.GetComponent<Renderer>().enabled = false;
+        Debug.Log(gameObject.GetComponent<Renderer>());
+
         CanFire = false;
         yield break;
     }
 
     void ScoreBumper()
     {
-        ScoreBanner.Instance.AddScore(5000);
+        ScoreBanner.Instance.AddScore(bumperScoreValue);
+        gameObject.GetComponent<AudioSource>().Play();
         onStopEffect.Invoke();
     }
 
     IEnumerator SpeedUpRoutine()
     {
+        gameObject.GetComponent<Renderer>().enabled = false;
+
         float startTime = 0;
 
         while(true)
@@ -89,6 +143,7 @@ public class BonusMalus : MonoBehaviour {
             //Debug.Log(HavanaManager.Instance.SpeedOffset);
             if (startTime > _speedOffsetCurve.keys.Last().time)
             {
+                gameObject.GetComponent<Renderer>().enabled = false;
                 onStopEffect.Invoke();
                 yield break;
             }

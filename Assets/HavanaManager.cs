@@ -6,6 +6,7 @@ using UnityEngine;
 
 public static class Helper
 {
+
     public static void ForEach<T>(this IEnumerable<T> @this, Action<T> action)
     {
         foreach (var t in @this) action(t);
@@ -70,13 +71,16 @@ public class HavanaManager : MonoBehaviour {
 
 
     [SerializeField] AnimationCurve GlobalTransitionCurve;
+    [SerializeField] float SpeedGameOffset = 800f;
 
     float TransitionCurveCursor = 0f;
     static public bool isSpeedBlocked = false;
+    static public bool SpeedMode = false;
 
     private void Awake()
     {
         Instance = this;
+        if (SpeedMode) TransitionCurveCursor += SpeedGameOffset;
         StartCoroutine(IncreaseGameSpeed());
     }
 

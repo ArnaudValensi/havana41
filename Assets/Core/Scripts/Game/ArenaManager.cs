@@ -52,8 +52,10 @@ public class ArenaManager : MonoBehaviour {
 		Managers.Game.SetState(typeof(GameOverState));
 	}
 
-	public void GoToTuto() {
-		animator.SetInteger("InternalState", 101);
+	public void GoToTuto(bool speedMode) {
+        if (speedMode) HavanaManager.SpeedMode = true;
+
+        animator.SetInteger("InternalState", 101);
 	}
 
 	public void QuitGame() {

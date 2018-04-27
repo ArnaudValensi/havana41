@@ -15,7 +15,7 @@ public class ShapeMovementController : MonoBehaviour {
     public Transform rotationPivot;
 
     // PlaySFX or Sound
-    [SerializeField] UnityEvent _onStopFalling; 
+    [SerializeField] public UnityEvent _onStopFalling; 
 
     public bool isFastTransition = false;
     public float fastTransitionInterval ;
@@ -87,6 +87,11 @@ public class ShapeMovementController : MonoBehaviour {
     {
         if (Time.time - lastFall >= transitionInterval)
         {
+
+            if(isFastTransition)
+            {
+                ScoreBanner.Instance.InstantFallReward();
+            }
             // Modify position
             transform.position += Vector3.down;
 
