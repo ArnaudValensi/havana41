@@ -12,7 +12,8 @@ public class BonusMalus : MonoBehaviour {
         Null,
         AutoLiner,
         ScoreBumper,
-        SpeedUp
+        SpeedUp,
+        Bomb
     }
     #endregion
 
@@ -48,12 +49,62 @@ public class BonusMalus : MonoBehaviour {
                 CanFire = false;
                 StartCoroutine(SpeedUpRoutine());
                 break;
+            case BonusMalusType.Bomb:
+                CanFire = false;
+                BombExplosion();
+                break;
             case BonusMalusType.Null:
             default:
                 break;
         }
     }
     
+    void BombExplosion()
+    {
+        Debug.Log(transform.parent.position);
+
+        DestroyElement(transform.parent.position.x - 2, transform.parent.position.y - 2);
+        DestroyElement(transform.parent.position.x - 2, transform.parent.position.y - 1);
+        DestroyElement(transform.parent.position.x - 2, transform.parent.position.y );
+        DestroyElement(transform.parent.position.x - 2, transform.parent.position.y +1);
+        DestroyElement(transform.parent.position.x - 2, transform.parent.position.y + 2);
+
+        DestroyElement(transform.parent.position.x + 2, transform.parent.position.y - 2);
+        DestroyElement(transform.parent.position.x + 2, transform.parent.position.y - 1);
+        DestroyElement(transform.parent.position.x + 2, transform.parent.position.y);
+        DestroyElement(transform.parent.position.x + 2, transform.parent.position.y + 1);
+        DestroyElement(transform.parent.position.x + 2, transform.parent.position.y + 2);
+
+        DestroyElement(transform.parent.position.x-1, transform.parent.position.y-2);
+        DestroyElement(transform.parent.position.x-1, transform.parent.position.y-1);
+        DestroyElement(transform.parent.position.x-1, transform.parent.position.y);
+        DestroyElement(transform.parent.position.x-1, transform.parent.position.y+1);
+        DestroyElement(transform.parent.position.x-1, transform.parent.position.y+2);
+
+        DestroyElement(transform.parent.position.x+1, transform.parent.position.y-2);
+        DestroyElement(transform.parent.position.x+1, transform.parent.position.y-1);
+        DestroyElement(transform.parent.position.x+1, transform.parent.position.y);
+        DestroyElement(transform.parent.position.x+1, transform.parent.position.y+1);
+        DestroyElement(transform.parent.position.x+1, transform.parent.position.y+2);
+
+        DestroyElement(transform.parent.position.x, transform.parent.position.y-2);
+        DestroyElement(transform.parent.position.x, transform.parent.position.y-1);
+        DestroyElement(transform.parent.position.x, transform.parent.position.y+1);
+        DestroyElement(transform.parent.position.x, transform.parent.position.y+2);
+
+        DestroyElement(transform.parent.position.x, transform.parent.position.y);
+
+        Managers.Grid.PlaceShape(null);
+    }
+    void DestroyElement(float x, float y)
+    {
+        try
+        {
+            Destroy(Managers.Grid.gameGridcol[(int)x].row[(int)y].gameObject);
+            Managers.Grid.gameGridcol[(int)x].row[(int)y] = null;
+        }
+        catch { }
+    }
 
     IEnumerator AutoLiner()
     {
