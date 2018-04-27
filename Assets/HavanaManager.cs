@@ -6,6 +6,7 @@ using UnityEngine;
 
 public static class Helper
 {
+
     public static void ForEach<T>(this IEnumerable<T> @this, Action<T> action)
     {
         foreach (var t in @this) action(t);
