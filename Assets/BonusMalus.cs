@@ -76,34 +76,17 @@ public class BonusMalus : MonoBehaviour {
         shape._onStopFalling.AddListener(() => { next = true; });
         yield return new WaitWhile(() => !next);
 
-        DestroyElement(transform.parent.position.x - 2, transform.parent.position.y - 2);
-        DestroyElement(transform.parent.position.x - 2, transform.parent.position.y - 1);
-        DestroyElement(transform.parent.position.x - 2, transform.parent.position.y );
-        DestroyElement(transform.parent.position.x - 2, transform.parent.position.y +1);
-        DestroyElement(transform.parent.position.x - 2, transform.parent.position.y + 2);
 
-        DestroyElement(transform.parent.position.x + 2, transform.parent.position.y - 2);
-        DestroyElement(transform.parent.position.x + 2, transform.parent.position.y - 1);
-        DestroyElement(transform.parent.position.x + 2, transform.parent.position.y);
-        DestroyElement(transform.parent.position.x + 2, transform.parent.position.y + 1);
-        DestroyElement(transform.parent.position.x + 2, transform.parent.position.y + 2);
-
-        DestroyElement(transform.parent.position.x-1, transform.parent.position.y-2);
         DestroyElement(transform.parent.position.x-1, transform.parent.position.y-1);
         DestroyElement(transform.parent.position.x-1, transform.parent.position.y);
         DestroyElement(transform.parent.position.x-1, transform.parent.position.y+1);
-        DestroyElement(transform.parent.position.x-1, transform.parent.position.y+2);
 
-        DestroyElement(transform.parent.position.x+1, transform.parent.position.y-2);
         DestroyElement(transform.parent.position.x+1, transform.parent.position.y-1);
         DestroyElement(transform.parent.position.x+1, transform.parent.position.y);
         DestroyElement(transform.parent.position.x+1, transform.parent.position.y+1);
-        DestroyElement(transform.parent.position.x+1, transform.parent.position.y+2);
 
-        DestroyElement(transform.parent.position.x, transform.parent.position.y-2);
         DestroyElement(transform.parent.position.x, transform.parent.position.y-1);
         DestroyElement(transform.parent.position.x, transform.parent.position.y+1);
-        DestroyElement(transform.parent.position.x, transform.parent.position.y+2);
 
         DestroyElement(transform.parent.position.x, transform.parent.position.y);
     }
