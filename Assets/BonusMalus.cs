@@ -27,6 +27,8 @@ public class BonusMalus : MonoBehaviour {
     [SerializeField] int _elementToSpawn=3;
     [SerializeField] GameObject _singleBlockprefab;
 
+    [SerializeField] int bumperScoreValue = 0;
+
     bool CanFire = true;
     
 	public void Fire()
@@ -69,18 +71,25 @@ public class BonusMalus : MonoBehaviour {
             Managers.Spawner.Spawn(_singleBlockprefab, el.colIdx, el.rowIdx);
             if (++spawned >= _elementToSpawn) break;
         }
+
+        gameObject.GetComponent<Renderer>().enabled = false;
+        Debug.Log(gameObject.GetComponent<Renderer>());
+
         CanFire = false;
         yield break;
     }
 
     void ScoreBumper()
     {
-        ScoreBanner.Instance.AddScore(5000);
+        ScoreBanner.Instance.AddScore(bumperScoreValue);
+        gameObject.GetComponent<AudioSource>().Play();
         onStopEffect.Invoke();
     }
 
     IEnumerator SpeedUpRoutine()
     {
+        gameObject.GetComponent<Renderer>().enabled = false;
+
         float startTime = 0;
 
         while(true)
@@ -89,6 +98,7 @@ public class BonusMalus : MonoBehaviour {
             //Debug.Log(HavanaManager.Instance.SpeedOffset);
             if (startTime > _speedOffsetCurve.keys.Last().time)
             {
+                gameObject.GetComponent<Renderer>().enabled = false;
                 onStopEffect.Invoke();
                 yield break;
             }
