@@ -87,6 +87,11 @@ public class ShapeMovementController : MonoBehaviour {
     {
         if (Time.time - lastFall >= transitionInterval)
         {
+
+            if(isFastTransition)
+            {
+                ScoreBanner.Instance.InstantFallReward();
+            }
             // Modify position
             transform.position += Vector3.down;
 

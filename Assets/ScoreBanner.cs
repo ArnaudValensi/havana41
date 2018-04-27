@@ -6,11 +6,13 @@ using UnityEngine;
 
 public class ScoreBanner : MonoBehaviour {
 
-	public static ScoreBanner Instance;
+    public static ScoreBanner Instance;
 
-	[SerializeField] TextMeshProUGUI _text;
-	[SerializeField] AnimationCurve _rewardPerSpeed;
-	[SerializeField] float _routineInterval = 1f;
+    [SerializeField] TextMeshProUGUI _text;
+    [SerializeField] AnimationCurve _rewardPerSpeed;
+    [SerializeField] float _routineInterval = 1f;
+
+    [SerializeField] int InstantFallScore = 110;
 
 	ArenaManager arenaManager;
 
@@ -47,4 +49,10 @@ public class ScoreBanner : MonoBehaviour {
 		_internalScore += v;
 		UpdateUI();
 	}
+
+    public void InstantFallReward()
+    {
+        _internalScore += InstantFallScore;
+        UpdateUI();
+    }
 }
