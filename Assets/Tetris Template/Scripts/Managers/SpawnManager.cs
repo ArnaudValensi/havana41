@@ -43,6 +43,7 @@ public class SpawnManager : MonoBehaviour {
         preview.GetComponentsInChildren<BoxCollider2D>().ForEach(i => Destroy(i));
         preview.GetComponentsInChildren<BonusMalusSlot>().ForEach(i => Destroy(i));
         preview.GetComponentsInChildren<Rigidbody2D>().ForEach(i => Destroy(i));
+        preview.transform.localPosition = Vector3.zero;
 
         NotificationManager.Instance.FireNotification(EventNotification.ShapeCreation, Managers.Game.currentShape);
     }
