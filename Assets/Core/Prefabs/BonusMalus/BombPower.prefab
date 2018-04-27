@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114228764271753384}
   - component: {fileID: 222660881217552324}
   - component: {fileID: 212474460468352204}
+  - component: {fileID: 111619100721150468}
   m_Layer: 9
   m_Name: BombPower
   m_TagString: Untagged
@@ -29,6 +30,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!111 &111619100721150468
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1595551438565228}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 6563609cf0f2b5445afed946c3e1933a, type: 2}
+  - {fileID: 0}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114228764271753384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -85,6 +102,8 @@ MonoBehaviour:
   _singleBlockprefab: {fileID: 1000013836595148, guid: a839247b3e49561498922452e1c050d7,
     type: 2}
   bumperScoreValue: 0
+  _animation: {fileID: 111619100721150468}
+  _readyToFire: {fileID: 7400000, guid: 6563609cf0f2b5445afed946c3e1933a, type: 2}
 --- !u!212 &212474460468352204
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -120,7 +139,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 30e888499fae6c5449d5308acb862929, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.945639, g: 1, b: 0.014705896, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -150,6 +169,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.162}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}

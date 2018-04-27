@@ -30,6 +30,11 @@ public class BonusMalus : MonoBehaviour {
 
     [SerializeField] int bumperScoreValue = 0;
 
+
+    [Header("BombConf")]
+    [SerializeField] Animation _animation;
+    [SerializeField] AnimationClip _readyToFire;
+
     bool CanFire = true;
     
 	public void Fire()
@@ -51,7 +56,7 @@ public class BonusMalus : MonoBehaviour {
                 break;
             case BonusMalusType.Bomb:
                 CanFire = false;
-                BombExplosion();
+                StartCoroutine(BombExplosion());
                 break;
             case BonusMalusType.Null:
             default:
@@ -59,9 +64,17 @@ public class BonusMalus : MonoBehaviour {
         }
     }
     
-    void BombExplosion()
+    IEnumerator BombExplosion()
     {
         Debug.Log(transform.parent.position);
+
+        if(_animation != null && _readyToFire != null && _animation[_readyToFire.name] != null)
+            _animation.Play(_readyToFire.name);
+
+        var shape= GetComponentInParent<ShapeMovementController>();
+        var next = false;
+        shape._onStopFalling.AddListener(() => { next = true; });
+        yield return new WaitWhile(() => !next);
 
         DestroyElement(transform.parent.position.x - 2, transform.parent.position.y - 2);
         DestroyElement(transform.parent.position.x - 2, transform.parent.position.y - 1);
@@ -93,8 +106,6 @@ public class BonusMalus : MonoBehaviour {
         DestroyElement(transform.parent.position.x, transform.parent.position.y+2);
 
         DestroyElement(transform.parent.position.x, transform.parent.position.y);
-
-        Managers.Grid.PlaceShape(null);
     }
     void DestroyElement(float x, float y)
     {
