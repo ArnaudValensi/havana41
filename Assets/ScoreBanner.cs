@@ -9,6 +9,7 @@ public class ScoreBanner : MonoBehaviour {
     public static ScoreBanner Instance;
 
     [SerializeField] TextMeshProUGUI _text;
+    [SerializeField] TextMeshProUGUI _bestScoreText;
     [SerializeField] AnimationCurve _rewardPerSpeed;
     [SerializeField] float _routineInterval = 1f;
 
@@ -17,6 +18,7 @@ public class ScoreBanner : MonoBehaviour {
 	ArenaManager arenaManager;
 
 	int _internalScore = 0;
+    static int _bestScore = 0;
 
 	private void Awake() {
 		Instance = this;
@@ -41,6 +43,13 @@ public class ScoreBanner : MonoBehaviour {
 	}
 
 	void UpdateUI() {
+        if(_internalScore > _bestScore)
+        {
+            _bestScore = _internalScore;
+            _bestScoreText.text = "Best Score :\n"+_bestScore;
+            _bestScoreText.gameObject.SetActive(true);
+        }
+
 		_text.text = _internalScore.ToString();
 
 	}
