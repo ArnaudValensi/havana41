@@ -11,7 +11,7 @@ public class GameOverState : _StatesBase {
         Managers.Game.isGameActive = false;
         Managers.Game.stats.highScore = Managers.Score.currentScore;
         Managers.Game.stats.numberOfGames++;
-        Managers.UI.popUps.ActivateGameOverPopUp();
+        // Managers.UI.popUps.ActivateGameOverPopUp();
         Managers.Audio.PlayLoseSound();
         NotificationManager.Instance.FireNotification(EventNotification.GameOver);
        

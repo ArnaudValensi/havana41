@@ -22,21 +22,21 @@ public class PopUp : MonoBehaviour
     {
         gameOverPopUp.transform.parent.gameObject.SetActive(true);
         gameOverPopUp.SetActive(true);
-        Managers.UI.activePopUp = gameOverPopUp;
+        // Managers.UI.activePopUp = gameOverPopUp;
     }
 
     public void ActivateSettingsPopUp()
     {
         settingsPopUp.transform.parent.gameObject.SetActive(true);
         settingsPopUp.SetActive(true);
-        Managers.UI.activePopUp = settingsPopUp;
+        // Managers.UI.activePopUp = settingsPopUp;
     }
 
     public void ActivatePlayerStatsPopUp()
     {
         playerStatsPopUp.transform.parent.gameObject.SetActive(true);
         playerStatsPopUp.SetActive(true);
-        Managers.UI.activePopUp = playerStatsPopUp;
+        // Managers.UI.activePopUp = playerStatsPopUp;
     }
 
 }

@@ -17,7 +17,7 @@ public class SettingsButton : MonoBehaviour {
     public void OnClickSettingsButton()
     {
         Managers.Audio.PlayUIClick();
-        Managers.UI.popUps.ActivateSettingsPopUp();
-        Managers.UI.panel.SetActive(true);
+        // Managers.UI.popUps.ActivateSettingsPopUp();
+        // Managers.UI.panel.SetActive(true);
     }
 }

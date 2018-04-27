@@ -9,8 +9,8 @@ public class GamePlayState : _StatesBase {
 	#region implemented abstract members of _StatesBase
 	public override void OnActivate ()
 	{
-        Managers.UI.panel.SetActive(false);
-        Managers.UI.ActivateUI(Menus.INGAME);
+        // Managers.UI.panel.SetActive(false);
+        // Managers.UI.ActivateUI(Menus.INGAME);
 
         gamePlayDuration = Time.time;
 		Managers.Spawner.Spawn();

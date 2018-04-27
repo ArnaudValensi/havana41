@@ -24,12 +24,12 @@ public class ScoreManager : MonoBehaviour {
         if (Managers.Game.stats.highScore != 0)
         {
             highScore = Managers.Game.stats.highScore;
-            Managers.UI.inGameUI.UpdateScoreUI();
+            // Managers.UI.inGameUI.UpdateScoreUI();
         }
         else
         {
             highScore = 0;
-            Managers.UI.inGameUI.UpdateScoreUI();
+            //Managers.UI.inGameUI.UpdateScoreUI();
         }
     }
 
@@ -51,7 +51,7 @@ public class ScoreManager : MonoBehaviour {
     {
         currentScore = 0;
         highScore = Managers.Game.stats.highScore;
-        Managers.UI.inGameUI.UpdateScoreUI();
+        // Managers.UI.inGameUI.UpdateScoreUI();
     }
 
 }

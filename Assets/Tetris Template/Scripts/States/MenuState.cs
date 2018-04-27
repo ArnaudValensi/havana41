@@ -11,10 +11,10 @@ public class MenuState : _StatesBase {
 	{		
 		Debug.Log ("<color=green>Menu State</color> OnActive");	
 
-		Managers.UI.ActivateUI (Menus.MAIN);
+		// Managers.UI.ActivateUI (Menus.MAIN);
         Managers.Cam.ZoomOut();
-        Managers.UI.mainMenu.MainMenuStartAnimation();
-        Managers.UI.MainMenuArrange();
+        // Managers.UI.mainMenu.MainMenuStartAnimation();
+        // Managers.UI.MainMenuArrange();
     }
 
 	public override void OnDeactivate ()

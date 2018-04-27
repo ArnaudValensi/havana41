@@ -90,7 +90,7 @@ public class UIManager : MonoBehaviour {
         {
             outsidePanel.SetActive(false);
             outsidePanel.transform.parent.gameObject.SetActive(false);
-            Managers.UI.panel.SetActive(false);
+            // Managers.UI.panel.SetActive(false);
             activePopUp = null;
         }
     }

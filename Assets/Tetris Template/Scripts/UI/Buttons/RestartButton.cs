@@ -20,6 +20,6 @@ public class RestartButton : MonoBehaviour {
         Managers.Grid.ClearBoard();
         Managers.Game.isGameActive = false;
         Managers.Game.SetState(typeof(GamePlayState));
-        Managers.UI.inGameUI.gameOverPopUp.SetActive(false);
+        // Managers.UI.inGameUI.gameOverPopUp.SetActive(false);
     }
 }

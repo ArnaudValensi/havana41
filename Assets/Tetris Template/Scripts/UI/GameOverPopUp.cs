@@ -21,14 +21,14 @@ public class GameOverPopUp : MonoBehaviour {
     void OnEnable()
     {
         gameOverScore.text = Managers.Score.currentScore.ToString();
-        Managers.UI.panel.SetActive(true);
+        // Managers.UI.panel.SetActive(true);
     }
 
     public void BackToMainMenu()
     {
         Managers.Grid.ClearBoard();
         Managers.Audio.PlayUIClick();
-        Managers.UI.panel.SetActive(false);
+        // Managers.UI.panel.SetActive(false);
         Managers.Game.SetState(typeof(MenuState));
         gameObject.SetActive(false);
     }
