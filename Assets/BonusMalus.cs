@@ -85,6 +85,15 @@ public class BonusMalus : MonoBehaviour {
         DestroyElement(transform.parent.position.x+1, transform.parent.position.y);
         DestroyElement(transform.parent.position.x+1, transform.parent.position.y+1);
 
+		DestroyElement(transform.parent.position.x-2, transform.parent.position.y-1);
+		DestroyElement(transform.parent.position.x-2, transform.parent.position.y);
+		DestroyElement(transform.parent.position.x-2, transform.parent.position.y+1);
+
+		DestroyElement(transform.parent.position.x+2, transform.parent.position.y-1);
+		DestroyElement(transform.parent.position.x+2, transform.parent.position.y);
+		DestroyElement(transform.parent.position.x+2, transform.parent.position.y+1);
+
+
         DestroyElement(transform.parent.position.x, transform.parent.position.y-1);
         DestroyElement(transform.parent.position.x, transform.parent.position.y+1);
 

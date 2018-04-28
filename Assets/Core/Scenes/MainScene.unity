@@ -3945,7 +3945,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 91
-  m_Sprite: {fileID: 21300000, guid: 2308d8fe2860a4b28a72c6fc8b5a98cc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 94f05865b71338f44badb8e0d37fadf2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7060,7 +7060,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011406727730, guid: c2e0b1631ac9e104da66e436240b0113, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2e0b1631ac9e104da66e436240b0113, type: 2}
@@ -7788,7 +7788,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 49.999878, y: 192.5}
+  m_AnchoredPosition: {x: 87, y: 107}
   m_SizeDelta: {x: 205.9, y: 51.600006}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &704403451
@@ -10183,6 +10183,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114228764271753384, guid: 57158ccac96afd04caab88ff7f4260fe,
+        type: 2}
+      propertyPath: bombSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5a6dbeade8063472295ec1d263fb62e3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 57158ccac96afd04caab88ff7f4260fe, type: 2}
   m_IsPrefabParent: 0
@@ -12212,7 +12217,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 2308d8fe2860a4b28a72c6fc8b5a98cc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 94f05865b71338f44badb8e0d37fadf2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13264,7 +13269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 49.999878, y: 29.7}
+  m_AnchoredPosition: {x: 49.999878, y: -40}
   m_SizeDelta: {x: 205.9, y: 51.600006}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1087337208
@@ -13416,13 +13421,13 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 100
+      value: -0.0000042915344
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 9.8333435
-      value: 100
+      time: 1.1
+      value: -0.0000076293945
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -13430,7 +13435,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   _routineInterval: 1
-  InstantFallScore: 110
+  InstantFallScore: 350
 --- !u!222 &1088804714
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13461,7 +13466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 1747098825}
-  Min: 0.8
+  Min: 0.95
   Max: 0
 --- !u!1001 &1097552233
 Prefab:
@@ -13672,7 +13677,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1114020533
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13690,7 +13695,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 49.99994, y: -50.000015}
+  m_AnchoredPosition: {x: 49.99994, y: 100.5}
   m_SizeDelta: {x: 205.9, y: 51.600006}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1114020534
@@ -21506,7 +21511,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1df00c89cf904244e94d64a949db9b43, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bef37787f7d7c3b4bb9f7f4065b5ca6e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -22646,14 +22651,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapeTypes:
-  - {fileID: 1677413261501040, guid: 9732d341e640f0c41bb50880c8eaffd8, type: 2}
-  - {fileID: 1324924137025090, guid: 15dd2399058744f4ea1391c13fdf112e, type: 2}
-  - {fileID: 1105979447021890, guid: b5708a798060416439625568ba309480, type: 2}
-  - {fileID: 1000013836595148, guid: f2d0cff2bd7256d42b6958300bb934ed, type: 2}
-  - {fileID: 1000013774893932, guid: 5127458934b5b5f4196bc48eb5fab910, type: 2}
-  - {fileID: 1000010735536160, guid: 092bdda36f5402b47a2f3f5282308bf2, type: 2}
-  - {fileID: 1000010743416826, guid: c2e0b1631ac9e104da66e436240b0113, type: 2}
-  - {fileID: 1000011639141054, guid: e63f065e3be81334281c50801b9d8b56, type: 2}
+  - {fileID: 1000013836595148, guid: 1813af38a7556a646ac2265cf984d558, type: 2}
+  - {fileID: 1000013774893932, guid: ce1e38505976d6f4293f6f9bc4b3943a, type: 2}
+  - {fileID: 1000010735536160, guid: 5d5730fe54ea10648b29c8c4547b5ade, type: 2}
+  - {fileID: 1000010743416826, guid: 46faabbae47607f4c85ee58327632f40, type: 2}
+  - {fileID: 1000011639141054, guid: b2adcc2a4d7f6964e8b3136f58f37a16, type: 2}
+  - {fileID: 1105979447021890, guid: 40ef977c77f4c43429865068fff01f8e, type: 2}
+  - {fileID: 1677413261501040, guid: a05506a059d4ea646bd2ed0ec780d8d8, type: 2}
+  - {fileID: 1324924137025090, guid: 2c4253195f727064d99b3470403736c5, type: 2}
+  - {fileID: 1000013836595148, guid: 9d3d9f342561f704883ab9afe1ccf78c, type: 2}
+  - {fileID: 1000013774893932, guid: b46fcf7dc31dae544b9594ab19500eb2, type: 2}
+  - {fileID: 1000010735536160, guid: 4f70d38227149e24998581eeb2d43eb6, type: 2}
+  - {fileID: 1000010743416826, guid: 36262ee2508195d4aa33d26cf455b2e8, type: 2}
+  - {fileID: 1000011639141054, guid: 622b3f8ccd91a5b459eda1c97616b658, type: 2}
+  - {fileID: 1105979447021890, guid: 75b380d6fa57d8c4cb35ecf1572423fd, type: 2}
+  - {fileID: 1677413261501040, guid: 804b9b0c5972e474b91b6eb2b3279fe3, type: 2}
+  - {fileID: 1324924137025090, guid: 988754cdbbe67914f9cf6d0b0908eded, type: 2}
+  - {fileID: 1000013836595148, guid: 26e218aa85610ed418a4355c2010c9e4, type: 2}
+  - {fileID: 1000013774893932, guid: 3146a992a9308624d95a8e6327ade046, type: 2}
+  - {fileID: 1000010735536160, guid: 5af16512adbd52c429ef2c8b7b23dcbd, type: 2}
+  - {fileID: 1000010743416826, guid: af3ae3432b8916a42a59af8e447ed061, type: 2}
+  - {fileID: 1000011639141054, guid: 753b75fce4335244296159d4fa44408c, type: 2}
+  - {fileID: 1105979447021890, guid: daf8a5f776a291b4a810878b3bf2209d, type: 2}
+  - {fileID: 1677413261501040, guid: 362a5adaa831efe42aca9821fe418a57, type: 2}
+  - {fileID: 1324924137025090, guid: cd7974a77e6026943a8c14fb39c74750, type: 2}
+  - {fileID: 1000013774893932, guid: 177bd5593afd1a04f9bd445dd4c92433, type: 2}
+  - {fileID: 1000013836595148, guid: 12478cc4ed402f6428dfe4d5e5ce0604, type: 2}
+  - {fileID: 1000010735536160, guid: dced0bb7df395124cb2fb5b835dac51d, type: 2}
+  - {fileID: 1000010743416826, guid: 74dfd7c94651a3844bf1a1ec7e1add5b, type: 2}
+  - {fileID: 1000011639141054, guid: 98f3909ff36636749b209911f7279503, type: 2}
+  - {fileID: 1105979447021890, guid: 833bbf45aee09b74d87d2566363df3ef, type: 2}
+  - {fileID: 1677413261501040, guid: d4fd59bb1d765324790ce650414a12bc, type: 2}
+  - {fileID: 1324924137025090, guid: 793c4cba97c0b1645a3cc60177437680, type: 2}
+  - {fileID: 1000013836595148, guid: 8342c2b2047abfd4090c56e750389e92, type: 2}
+  - {fileID: 1000013774893932, guid: 44916f50befa6854bbf2616182d73a2d, type: 2}
+  - {fileID: 1000010735536160, guid: e2d8e954188b2014c875ae972744b999, type: 2}
+  - {fileID: 1000010743416826, guid: 61edfec50480cac4a94ba937dd260908, type: 2}
+  - {fileID: 1000011639141054, guid: 4e2959d69ab6b86439ca4d8bc15b4f88, type: 2}
+  - {fileID: 1105979447021890, guid: 651e86a5b07b48a4d9ee98235b3d14b5, type: 2}
+  - {fileID: 1677413261501040, guid: 9c6afd6602eb83343a60b00fabb178b1, type: 2}
+  - {fileID: 1324924137025090, guid: 219c630ada853444dafbd5275828e5b9, type: 2}
+  - {fileID: 1000013836595148, guid: ad2f7058faf90bb4e8f159e4c5e02a7b, type: 2}
+  - {fileID: 1000010735536160, guid: 03fcb96e3a81cf44389361bb1632a009, type: 2}
+  - {fileID: 1000013774893932, guid: 4d2c2d7f07f1b424ea51f168079cd3b3, type: 2}
+  - {fileID: 1000010743416826, guid: 880657a92f8abab4bb375d761acfef46, type: 2}
+  - {fileID: 1000011639141054, guid: 7791ce6753498b34faf088303425f5d8, type: 2}
+  - {fileID: 1677413261501040, guid: 1177a51965ff3de40a9cb06538d8d045, type: 2}
+  - {fileID: 1324924137025090, guid: 4f0c8335ef0746946ae1d1705ee8f6be, type: 2}
+  - {fileID: 1105979447021890, guid: 5694dd5bdba41c14daa3341352777ca1, type: 2}
   _startPositionPossibility:
   - {fileID: 1850472784}
   - {fileID: 1074103226}
@@ -22676,14 +22721,15 @@ MonoBehaviour:
   activeTheme: 0
   themePack_Pastel:
   - {r: 0.97794116, g: 0.2948205, b: 0.8177611, a: 1}
-  - {r: 0, g: 0.76, b: 0.841, a: 1}
+  - {r: 0, g: 0.65, b: 0.8897059, a: 1}
   - {r: 0.97794116, g: 0.5514422, b: 0.23010379, a: 1}
-  - {r: 0.06568987, g: 0.472, b: 0.20090522, a: 1}
+  - {r: 0.07628676, g: 0.6102941, b: 0.25399825, a: 1}
   - {r: 0.5533468, g: 0.14749132, b: 0.9117647, a: 1}
   - {r: 0.8602941, g: 0.13283956, b: 0.13283956, a: 1}
-  - {r: 0.9411765, g: 0.792, b: 0.3321799, a: 1}
-  - {r: 0, g: 0.482, b: 0.728, a: 1}
+  - {r: 0.9411765, g: 0.854, b: 0.3321799, a: 1}
+  - {r: 0, g: 0.415, b: 0.728, a: 1}
   - {r: 0.070177354, g: 0.86764705, b: 0.17467329, a: 1}
+  - {r: 0.22869809, g: 0.66176474, b: 0.62592465, a: 1}
   themePack_Gram:
   - {r: 0.3019608, g: 0.8352942, b: 0.6901961, a: 1}
   - {r: 0.9294118, g: 0.58431375, b: 0.2901961, a: 1}
@@ -24109,7 +24155,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1927578783}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.39, y: 16.41, z: 0}
+  m_LocalPosition: {x: 4.39, y: 16.66, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 722557741}
@@ -26417,16 +26463,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: -18.780937
-      value: 0.95140123
-      inSlope: -0.00046665134
-      outSlope: -0.00046665134
+      time: -9.974424
+      value: 0.94986004
+      inSlope: -0.0020328292
+      outSlope: -0.0020328292
       tangentMode: 34
     - serializedVersion: 2
-      time: 2001.5455
-      value: 0.008613203
-      inSlope: 0
-      outSlope: 0
+      time: 399.92493
+      value: 0.11660467
+      inSlope: -0.00045059875
+      outSlope: -0.00045059875
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -26459,9 +26505,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeInterval: 10
-  _shapeCreationInterval: 2
+  _shapeCreationInterval: 3
   AllBonusMalus:
-  - {fileID: 1595551438565228, guid: 57158ccac96afd04caab88ff7f4260fe, type: 2}
+  - {fileID: 1595551438565228, guid: eaa06251e5f16904390cf45882757a5b, type: 2}
+  - {fileID: 1595551438565228, guid: 1881831ffa4914c41ab0baa60132794b, type: 2}
+  - {fileID: 1595551438565228, guid: 22bcf8b8f02505c45ba34de59284ad69, type: 2}
+  - {fileID: 1595551438565228, guid: 1881831ffa4914c41ab0baa60132794b, type: 2}
 --- !u!114 &2125667188
 MonoBehaviour:
   m_ObjectHideFlags: 0
