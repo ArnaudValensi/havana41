@@ -40,6 +40,7 @@ public class ShapeMovementController : MonoBehaviour {
         isFalling = false;
 
         _onStopFalling.Invoke();
+        GetComponentInChildren<BonusMalus>()?.OnShapeStopFall.Invoke();
     }
 
     public void ShapeUpdate()

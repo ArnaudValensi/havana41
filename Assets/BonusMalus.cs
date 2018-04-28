@@ -19,6 +19,7 @@ public class BonusMalus : MonoBehaviour {
 
     [SerializeField] UnityEvent onFire;
     [SerializeField] UnityEvent onStopEffect;
+    [SerializeField] public UnityEvent OnShapeStopFall;
     [SerializeField] BonusMalusType type;
 
     [Header("SpeedUp Configuration")]
