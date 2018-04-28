@@ -64,15 +64,14 @@ public class BonusMalus : MonoBehaviour {
             .Where(el => el.element == null)
             .OrderBy(el => el.rowIdx);
 
-        var spawned = 0; 
+        var spawned = 0;
 
-        foreach(var el in allGridElement)
+        foreach (var el in allGridElement)
         {
             Managers.Spawner.Spawn(_singleBlockprefab, el.colIdx, el.rowIdx);
             if (++spawned >= _elementToSpawn) break;
         }
-
-        gameObject.GetComponent<Renderer>().enabled = false;
+        
         Debug.Log(gameObject.GetComponent<Renderer>());
 
         CanFire = false;
@@ -82,23 +81,19 @@ public class BonusMalus : MonoBehaviour {
     void ScoreBumper()
     {
         ScoreBanner.Instance.AddScore(bumperScoreValue);
-        gameObject.GetComponent<AudioSource>().Play();
         onStopEffect.Invoke();
     }
 
     IEnumerator SpeedUpRoutine()
     {
-        gameObject.GetComponent<Renderer>().enabled = false;
-
         float startTime = 0;
 
-        while(true)
+        while (true)
         {
             HavanaManager.Instance.SpeedOffset = _speedOffsetCurve.Evaluate(startTime, true);
             //Debug.Log(HavanaManager.Instance.SpeedOffset);
             if (startTime > _speedOffsetCurve.keys.Last().time)
             {
-                gameObject.GetComponent<Renderer>().enabled = false;
                 onStopEffect.Invoke();
                 yield break;
             }
