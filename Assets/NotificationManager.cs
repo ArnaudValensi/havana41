@@ -10,7 +10,8 @@ public enum EventNotification
     MainMenuStart,
     GameStart,
     GameOver,
-    ShapeCreation
+    ShapeCreation,
+    OnShapeMove
 }
 
 

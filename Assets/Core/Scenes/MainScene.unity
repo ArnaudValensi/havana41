@@ -13429,6 +13429,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  _useShapeTick: 1
   _routineInterval: 1
   InstantFallScore: 110
 --- !u!222 &1088804714

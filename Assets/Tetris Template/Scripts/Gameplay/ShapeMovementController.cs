@@ -87,7 +87,7 @@ public class ShapeMovementController : MonoBehaviour {
     {
         if (Time.time - lastFall >= transitionInterval)
         {
-
+            NotificationManager.Instance.FireNotification(EventNotification.OnShapeMove, this);
             if(isFastTransition)
             {
                 ScoreBanner.Instance.InstantFallReward();

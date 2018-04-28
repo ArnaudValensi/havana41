@@ -11,6 +11,8 @@ public class ScoreBanner : MonoBehaviour {
     [SerializeField] TextMeshProUGUI _text;
     [SerializeField] TextMeshProUGUI _bestScoreText;
     [SerializeField] AnimationCurve _rewardPerSpeed;
+
+    [SerializeField] bool _useShapeTick;
     [SerializeField] float _routineInterval = 1f;
 
     [SerializeField] int InstantFallScore = 110;
@@ -24,16 +26,27 @@ public class ScoreBanner : MonoBehaviour {
 		Instance = this;
 		_internalScore = 0;
 		StartCoroutine(ScoreUpgrade());
+
 	}
 
 	void Start() {
 		arenaManager = GameObject.Find("/Arena").GetComponent<ArenaManager>();
+
 	}
 
 	IEnumerator ScoreUpgrade() {
+        // Prepare sync with ShapeMovement
+        bool next = false;
+        NotificationManager.Instance.AttachNotif(EventNotification.OnShapeMove, this, (o) => { next = true; });
 
 		while (true) {
-			yield return new WaitForSeconds(_routineInterval);
+
+			if(!_useShapeTick) yield return new WaitForSeconds(_routineInterval);
+            else
+            {
+                yield return new WaitWhile(() => !next);
+                next = false;
+            }
 
 			_internalScore += (int)_rewardPerSpeed.Evaluate(HavanaManager.Instance.GlobalTransitionInterval);
 			arenaManager.SetScore(_internalScore);
