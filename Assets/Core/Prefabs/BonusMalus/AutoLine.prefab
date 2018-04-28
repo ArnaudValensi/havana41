@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114228764271753384}
   - component: {fileID: 222660881217552324}
   - component: {fileID: 212474460468352204}
+  - component: {fileID: 114233460743870826}
   m_Layer: 9
   m_Name: AutoLine
   m_TagString: Untagged
@@ -42,7 +43,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onFire:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1595551438565228}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114233460743870826}
+        m_MethodName: PlaySound_
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Coin2
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onStopEffect:
@@ -84,6 +107,18 @@ MonoBehaviour:
   _elementToSpawn: 3
   _singleBlockprefab: {fileID: 1000013836595148, guid: a839247b3e49561498922452e1c050d7,
     type: 2}
+  bumperScoreValue: 0
+--- !u!114 &114233460743870826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1595551438565228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f843cdda136ad8d458d1bc02f8a669a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212474460468352204
 SpriteRenderer:
   m_ObjectHideFlags: 1

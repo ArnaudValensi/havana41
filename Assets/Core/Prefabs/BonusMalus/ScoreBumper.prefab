@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 212474460468352204}
   - component: {fileID: 114793457152601812}
   - component: {fileID: 82980608444482854}
+  - component: {fileID: 114927104158231396}
   m_Layer: 9
   m_Name: ScoreBumper
   m_TagString: Untagged
@@ -37,10 +38,10 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1595551438565228}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 93e68e0ff6844514c820acaa7f0472db, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.385
   m_Pitch: 1
@@ -137,11 +138,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114927104158231396}
+        m_MethodName: PlaySound_
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Coin1
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onStopEffect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   type: 2
@@ -153,6 +176,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   _elementToSpawn: 3
   _singleBlockprefab: {fileID: 0}
+  bumperScoreValue: 0
 --- !u!114 &114793457152601812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -162,6 +186,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55cc4421fafc3cb43b92836a33211260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114927104158231396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1595551438565228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f843cdda136ad8d458d1bc02f8a669a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212474460468352204
