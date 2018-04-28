@@ -74,7 +74,7 @@ public class ScoreBanner : MonoBehaviour {
 
     public void InstantFallReward()
     {
-        _internalScore += InstantFallScore;
+        _internalScore += ((int)(InstantFallScore / HavanaManager.Instance.GlobalTransitionInterval)) * 2;
         UpdateUI();
     }
 }
