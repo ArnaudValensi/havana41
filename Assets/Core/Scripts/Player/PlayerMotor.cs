@@ -14,6 +14,7 @@ public class PlayerMotor : MonoBehaviour {
 	public float stompFallCoef = 2f;
 	public LayerMask platformLayer;
 	public AudioClip stompSound;
+	public AudioClip jumpSound;
 
 	[ReadOnly] public bool grounded;
 	[ReadOnly] public Vector3 velocity = Vector3.zero;
@@ -54,8 +55,12 @@ public class PlayerMotor : MonoBehaviour {
 			velocity.y = -gravity * Time.deltaTime;
 
 			if (Input.GetButtonDown("Jump")) {
+				audioSource.clip = jumpSound;
+				audioSource.pitch = (Random.Range (0.9f, 1.2f));
+				audioSource.Play();
 				velocity.y = jumpForce;
 				onJump.Invoke();
+
 			}
 
 			if (isStomping) {
