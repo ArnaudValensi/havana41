@@ -45,7 +45,8 @@ public class BonusMalus : MonoBehaviour {
 
         switch (type)
         {
-            case BonusMalusType.AutoLiner:
+		case BonusMalusType.AutoLiner:
+			CanFire = false;
                 StartCoroutine(AutoLiner());
                 break;
             case BonusMalusType.ScoreBumper:

@@ -167,6 +167,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  OnShapeStopFall:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   type: 2
   _speedOffsetCurve:
     serializedVersion: 2
@@ -176,7 +181,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   _elementToSpawn: 3
   _singleBlockprefab: {fileID: 0}
-  bumperScoreValue: 0
+  bumperScoreValue: 4500
+  _animation: {fileID: 0}
+  _readyToFire: {fileID: 0}
 --- !u!114 &114793457152601812
 MonoBehaviour:
   m_ObjectHideFlags: 1

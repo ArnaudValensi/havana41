@@ -44,17 +44,6 @@ MonoBehaviour:
   onFire:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1595551438565228}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 114233460743870826}
         m_MethodName: PlaySound_
         m_Mode: 5
@@ -66,9 +55,25 @@ MonoBehaviour:
           m_StringArgument: Coin2
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 212474460468352204}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onStopEffect:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnShapeStopFall:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -108,6 +113,8 @@ MonoBehaviour:
   _singleBlockprefab: {fileID: 1000013836595148, guid: a839247b3e49561498922452e1c050d7,
     type: 2}
   bumperScoreValue: 0
+  _animation: {fileID: 0}
+  _readyToFire: {fileID: 0}
 --- !u!114 &114233460743870826
 MonoBehaviour:
   m_ObjectHideFlags: 1
