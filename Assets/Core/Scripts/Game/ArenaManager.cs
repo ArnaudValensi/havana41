@@ -54,6 +54,7 @@ public class ArenaManager : MonoBehaviour {
 
 	public void GoToTuto(bool speedMode) {
         if (speedMode) HavanaManager.SpeedMode = true;
+        else HavanaManager.SpeedMode = false;
 
         animator.SetInteger("InternalState", 101);
 	}
