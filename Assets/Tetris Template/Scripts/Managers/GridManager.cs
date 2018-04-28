@@ -23,6 +23,8 @@ public class GridManager : MonoBehaviour
 {
     public Column[] gameGridcol = new Column[10];
 
+    public int ScorePerLineDestroyed = 1000;
+
     public bool InsideBorder(Vector2 pos)
     {
         return ((int)pos.x >= 0 && (int)pos.x < 10 && (int)pos.y >= 0);
@@ -46,6 +48,9 @@ public class GridManager : MonoBehaviour
                 DeleteRow(y);
                 DecreaseRowsAbove(y + 1);
                 --y;
+
+                ScoreBanner.Instance.AddScore(ScorePerLineDestroyed);
+
                 Managers.Audio.PlayLineClearSound();
                 yield return new WaitForSeconds(0.8f);
             }
