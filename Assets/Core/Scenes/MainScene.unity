@@ -22308,7 +22308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ff2cbb657d5a7468a70b52bffd446a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigKeyBoard: 1
+  trigKeyBoard: 0
   isActive: 0
   inputType: 0
   tapInterval: 0.1
