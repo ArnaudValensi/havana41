@@ -4354,9 +4354,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b0835c5582f1542be86fef3e9ce2a072, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b39d9a80f84049b4d86bfd05581132cd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.783
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8009,7 +8009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 49.999878, y: 192.5}
+  m_AnchoredPosition: {x: 49.999878, y: 124}
   m_SizeDelta: {x: 205.9, y: 51.600006}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &704403451
@@ -13536,8 +13536,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0.10671234
-      value: 500.69824
+      time: 0.11621857
+      value: 2105.0952
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -13583,7 +13583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 1747098825}
-  Min: 0.95
+  Min: 0.984
   Max: 0.1
 --- !u!1001 &1097552233
 Prefab:
@@ -27074,27 +27074,39 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0
-      value: 0.9500229
-      inSlope: -0.00050709053
-      outSlope: -0.00050709053
-      tangentMode: 34
-    - serializedVersion: 2
-      time: 887.527
-      value: 0.49996635
-      inSlope: -0.0004079557
-      outSlope: -0.0004079557
+      time: -1
+      value: 0.98399854
+      inSlope: Infinity
+      outSlope: Infinity
       tangentMode: 0
     - serializedVersion: 2
-      time: 1986.9662
-      value: 0.12010612
-      inSlope: -0.000046724632
-      outSlope: -0.000046724632
+      time: 2.233368
+      value: 0.9832826
+      inSlope: -0.0014901161
+      outSlope: -0.0014901161
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 299.02417
+      value: 0.52618897
+      inSlope: -0.00042982283
+      outSlope: -0.00042982283
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1446.5948
+      value: 0.23137322
+      inSlope: -0.0000048118554
+      outSlope: -0.0000048118554
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 10996.018
+      value: 0.18714163
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  SpeedGameOffset: 800
+  SpeedGameOffset: 300
 --- !u!4 &2125667186
 Transform:
   m_ObjectHideFlags: 0
@@ -27128,6 +27140,8 @@ MonoBehaviour:
   - {fileID: 1595551438565228, guid: 1881831ffa4914c41ab0baa60132794b, type: 2}
   - {fileID: 1595551438565228, guid: 22bcf8b8f02505c45ba34de59284ad69, type: 2}
   - {fileID: 1595551438565228, guid: 1881831ffa4914c41ab0baa60132794b, type: 2}
+  - {fileID: 1595551438565228, guid: eaa06251e5f16904390cf45882757a5b, type: 2}
+  - {fileID: 1595551438565228, guid: eaa06251e5f16904390cf45882757a5b, type: 2}
 --- !u!114 &2125667188
 MonoBehaviour:
   m_ObjectHideFlags: 0
