@@ -3,6 +3,8 @@ using TMPro;
 
 public class LeaderboardEntry : MonoBehaviour {
 
+	[SerializeField] Color highlightColor;
+
 	[ReadOnly] int position;
 	[ReadOnly] string playerName;
 	[ReadOnly] int score;
@@ -23,6 +25,10 @@ public class LeaderboardEntry : MonoBehaviour {
 		positionText.SetText("#" + position);
 		playerText.SetText(playerName);
 		scoreText.SetText(score.ToString());
+	}
+
+	public void Highlight() {
+		playerText.color = highlightColor;
 	}
 
 }

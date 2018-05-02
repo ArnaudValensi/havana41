@@ -11,23 +11,29 @@ public class Leaderboard : MonoBehaviour {
 	List<GameObject> entriesList = new List<GameObject>();
 
 	void OnEnable() {
-		Debug.Log("OnEnable");
-
 		Entries entries = LoadScoresFromFile();
+		Entry newEntry = new Entry() { playerName = "You", score = scoreManager.Score };
 
-		AddNewScore(entries, scoreManager.Score);
+		entries.Add(newEntry);
 		entries.Sort();
+		SaveScoreToFile(entries);
 
 		Clear();
 
 		int i = 1;
 		foreach (Entry entry in entries.GetTopEntries()) {
-			Debug.Log("entry: " + entry);
 			AddEntry(entry, i);
 			i++;
 		}
 
-		SaveScoreToFile(entries);
+		int rank = entries.GetEntryRank(newEntry);
+
+		if (rank <= 10) {
+			entriesList[rank].GetComponent<LeaderboardEntry>().Highlight();
+		} else {
+			LeaderboardEntry leaderboardEntry = AddEntry(newEntry, rank);
+			leaderboardEntry.Highlight();
+		}
 	}
 
 	void Clear() {
@@ -44,12 +50,14 @@ public class Leaderboard : MonoBehaviour {
 		entries.entries.Add(newEntry);
 	}
 
-	void AddEntry(Entry entry, int index) {
+	LeaderboardEntry AddEntry(Entry entry, int index) {
 		var entryGO = Instantiate(entryPrefab, transform);
 		var leaderboardEntry = entryGO.GetComponent<LeaderboardEntry>();
 
 		entriesList.Add(entryGO);
 		leaderboardEntry.Init(index, entry.playerName, entry.score);
+
+		return leaderboardEntry;
 	}
 
 	Entries LoadScoresFromFile() {
@@ -84,8 +92,12 @@ public class Leaderboard : MonoBehaviour {
 	}
 
 	[System.Serializable]
-	struct Entries {
+	class Entries {
 		public List<Entry> entries;
+
+		public void Add(Entry entry) {
+			entries.Add(entry);
+		}
 
 		public string SaveToString() {
 			return JsonUtility.ToJson(this, true);
@@ -109,10 +121,14 @@ public class Leaderboard : MonoBehaviour {
 		public IEnumerable<Entry> GetTopEntries() {
 			return entries.Take(10);
 		}
+
+		public int GetEntryRank(Entry entry) {
+			return entries.FindIndex(currentEntry => currentEntry == entry);
+		}
 	}
 
 	[System.Serializable]
-	struct Entry {
+	class Entry {
 		public string playerName;
 		public int score;
 	}
