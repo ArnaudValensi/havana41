@@ -11998,6 +11998,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   _routineInterval: 1
+  scoreManager: {fileID: 1643202872}
   InstantFallScore: 110
 --- !u!222 &1088804714
 CanvasRenderer:
@@ -18280,6 +18281,7 @@ GameObject:
   - component: {fileID: 1643202869}
   - component: {fileID: 1643202870}
   - component: {fileID: 1643202871}
+  - component: {fileID: 1643202872}
   m_Layer: 0
   m_Name: Arena
   m_TagString: Untagged
@@ -18382,6 +18384,18 @@ MonoBehaviour:
   animator: {fileID: 0}
   gameOverScore: {fileID: 1909178244}
   pauseScore: {fileID: 1556321499}
+--- !u!114 &1643202872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1643202864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7d161f4c5914cdb9e6fa0c4ad7b72c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
 --- !u!1 &1653261003
 GameObject:
   m_ObjectHideFlags: 0
@@ -23518,6 +23532,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1643202871}
+    - target: {fileID: 114566471280449768, guid: 2995b86fbb75b49c0a9783987cf17ee1,
+        type: 2}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 1643202872}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2995b86fbb75b49c0a9783987cf17ee1, type: 2}
   m_IsPrefabParent: 0

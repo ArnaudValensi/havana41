@@ -869,6 +869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entryPrefab: {fileID: 1618466096965724, guid: a00fc8baee1fe48728e67f3b0564cfab,
     type: 2}
+  scoreManager: {fileID: 0}
 --- !u!114 &114587321862239282
 MonoBehaviour:
   m_ObjectHideFlags: 1

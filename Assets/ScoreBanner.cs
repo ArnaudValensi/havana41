@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ScoreBanner : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class ScoreBanner : MonoBehaviour {
     [SerializeField] TextMeshProUGUI _bestScoreText;
     [SerializeField] AnimationCurve _rewardPerSpeed;
     [SerializeField] float _routineInterval = 1f;
+	[SerializeField] GameScoreManager scoreManager;
 
     [SerializeField] int InstantFallScore = 110;
 
@@ -51,7 +53,7 @@ public class ScoreBanner : MonoBehaviour {
         }
 
 		_text.text = _internalScore.ToString();
-
+		scoreManager.SetScore(_internalScore);
 	}
 
 	internal void AddScore(int v) {
